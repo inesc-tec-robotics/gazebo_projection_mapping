@@ -22,7 +22,7 @@
 			<material>Gazebo/Blue</material>
 			<sensor type="camera" name="virtual_camera">
 				<camera name="projector_head">
-					<horizontal_fov>1.3962634</horizontal_fov>
+					<horizontal_fov>0.6859</horizontal_fov>
 					<image>
 						<width>1920</width>
 						<height>1080</height>
