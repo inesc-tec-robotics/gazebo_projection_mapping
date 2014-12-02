@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="dot_grid">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>2.4 0.6 0.007</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://dot_grid/materials/scripts</uri>
+            <uri>model://dot_grid/materials/textures</uri>
+            <name>dot_grid</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
