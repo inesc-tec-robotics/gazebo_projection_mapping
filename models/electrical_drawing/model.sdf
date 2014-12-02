@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="electrical_drawing">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.652 0.948 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://electrical_drawing/materials/scripts</uri>
+            <uri>model://electrical_drawing/materials/textures</uri>
+            <name>electrical_drawing</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
