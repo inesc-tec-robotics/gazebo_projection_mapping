@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
+
 	<arg name="camera_initial_x" default="0" />
 	<arg name="camera_initial_y" default="0" />
 	<arg name="camera_initial_z" default="0" />

@@ -79,9 +79,6 @@
       </camera>
     </gui>
     <state world_name='default'>
-      <sim_time>9944 304000000</sim_time>
-      <real_time>36 614574718</real_time>
-      <wall_time>1417543177 447200289</wall_time>
       <model name='dot_grid'>
         <pose>0.002252 0.309368 1.22 0 1.5707 0</pose>
         <link name='link'>
@@ -92,7 +89,7 @@
         </link>
       </model>
       <model name='dot_grid_0'>
-        <pose>0.308878 0.002476 1.22 0.000572 -1.5707 1.57013</pose>
+        <pose>0.308878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
         <link name='link'>
           <pose>0.308878 0.002476 1.22 0.000572 -1.5707 1.57013</pose>
           <velocity>0 0 0 0 -0 0</velocity>
@@ -101,36 +98,36 @@
         </link>
       </model>
       <model name='dot_grid_1'>
-        <pose>0.909268 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+        <pose>0.908878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
         <link name='link'>
-          <pose>0.909268 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+          <pose>0.908878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='dot_grid_2'>
-        <pose>1.50932 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+        <pose>1.508878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
         <link name='link'>
-          <pose>1.50932 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+          <pose>1.508878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='dot_grid_3'>
-        <pose>2.10991 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+        <pose>2.108878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
         <link name='link'>
-          <pose>2.10991 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
+          <pose>2.108878 -0.000314 1.22 0.000572 -1.5707 1.57013</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='electrical_drawing'>
-        <pose>-1.85 -2.09 0.55 0 1.5707 -1.5707</pose>
+        <pose>-1.85 -2.09 1.55 0 1.5707 -1.5707</pose>
         <link name='link'>
-          <pose>-1.85 -2.09 0.55 0 1.5707 -1.5707</pose>
+          <pose>-1.85 -2.09 1.55 0 1.5707 -1.5707</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -173,18 +170,18 @@
         </link>
       </model>
       <model name='wall_pipe'>
-        <pose>0.001361 0.806656 0.67 1.5707 -5.55112e-17 -1.5707</pose>
+        <pose>0.001361 0.806656 1.78 1.5707 -5.55112e-17 -1.5707</pose>
         <link name='link'>
-          <pose>0.001361 0.806656 0.67 1.5707 -5.55112e-17 -1.5707</pose>
+          <pose>0.001361 0.806656 1.78 1.5707 -5.55112e-17 -1.5707</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='wall_plumbing'>
-        <pose>1.37464 -2.088 0.44 0 -1.5707 -1.5707</pose>
+        <pose>1.37464 -2.088 1.54 0 -1.5707 -1.5707</pose>
         <link name='link'>
-          <pose>1.37464 -2.088 0.44 0 -1.5707 -1.5707</pose>
+          <pose>1.37464 -2.088 1.54 0 -1.5707 -1.5707</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
