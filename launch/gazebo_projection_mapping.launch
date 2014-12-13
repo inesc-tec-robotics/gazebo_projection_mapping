@@ -2,18 +2,18 @@
 <launch>
 	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
 
-	<arg name="camera_initial_x" default="0" />
-	<arg name="camera_initial_y" default="0" />
-	<arg name="camera_initial_z" default="0" />
+	<arg name="camera_initial_x" default="-5.149733" />
+	<arg name="camera_initial_y" default="-3.107899" />
+	<arg name="camera_initial_z" default="1.250000" />
 	<arg name="camera_initial_roll" default="0" />
 	<arg name="camera_initial_pitch" default="0" />
-	<arg name="camera_initial_yaw" default="0" />
+	<arg name="camera_initial_yaw" default="0.680000" />
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/lab_with_windows_simple.world" />
 		<arg name="paused" value="false" />
 		<arg name="use_sim_time" value="false" />
-		<arg name="gui" value="false" />
+		<arg name="gui" value="true" />
 		<arg name="headless" value="true" />
 		<arg name="debug" value="false" />
 	</include>
