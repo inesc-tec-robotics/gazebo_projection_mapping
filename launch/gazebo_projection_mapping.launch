@@ -2,6 +2,46 @@
 <launch>
 	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
 
+<!-- inclui mapa para o gazebo -->
+<!--	<include file="$(find gazebo_ros)/launch/empty_world.launch">  -->
+		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/demo_stirofone_wall.world" />
+<!--
+		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/lab_with_ambient_light.world" />
+-->
+		<arg name="paused" value="false" />
+		<arg name="use_sim_time" value="false" />
+		<arg name="gui" value="true" />
+		<arg name="headless" value="true" />
+		<arg name="debug" value="false" />
+		<arg name="verbose" default="false"/>
+<!--	</include>  -->
+
+<!-- set use_sim_time flag -->
+<!--  <group if="$(arg use_sim_time)"> -->
+    <param name="/use_sim_time" value="false" />
+<!--  </group> -->
+
+<!-- set command arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg headless)" name="command_arg2" value=""/>
+  <arg     if="$(arg headless)" name="command_arg2" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- start gazebo server-->
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
+	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) $(arg world_name)" />
+	
+  <!-- start gazebo client -->
+  <group if="$(arg gui)">
+    <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
+  </group>
+
+
+<!-- argumentos para a camara -->
 	<arg name="camera_initial_x" default="-5.149733" />
 	<arg name="camera_initial_y" default="-3.107899" />
 	<arg name="camera_initial_z" default="1.250000" />
@@ -9,27 +49,39 @@
 	<arg name="camera_initial_pitch" default="0" />
 	<arg name="camera_initial_yaw" default="0.680000" />
 
-	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/lab_with_windows_simple.world" />
-		<arg name="paused" value="false" />
-		<arg name="use_sim_time" value="false" />
-		<arg name="gui" value="true" />
-		<arg name="headless" value="true" />
-		<arg name="debug" value="false" />
-	</include>
-
+<!-- adiciona no da camara com os devidos argumentos -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
 		args="-urdf -model camera_projection_mapping -file $(find gazebo_projection_mapping)/urdf/camera.urdf.xacro -x $(arg camera_initial_x) -y $(arg camera_initial_y) -z $(arg camera_initial_z) -R $(arg camera_initial_roll) -P $(arg camera_initial_pitch) -Y $(arg camera_initial_yaw)" />
 
+<!--
+<param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find projector_test)/urdf/projector_test.xacro'" />
+
+<node name="projector_test_urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+    respawn="false" output="screen"
+    args="-urdf -model projector_test -param robot_description" />
+-->
+
+<!-- adiciona no de visualização -->
 	<node pkg="image_view" type="image_view" name="image_view">
 		<param name="autosize" type="bool" value="false" />
-		<remap from="image" to="virtual_camera/image_raw" />
+		<remap from="image" to="virtual_camera/image_raw" />   <!-- muda o nome do no -->
 	</node>
+
+	
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node">
 		<param name="gazebo_link_name" type="str" value="projector_link" />
-		<param name="tf_source_frame" type="str" value="projector_link" />
+		<param name="tf_source_frame" type="str" value="tf_projector_link" />
 	</node>
 
-	<!-- <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="0 -0.5 1 3.14 0 0 map projector_link 10" /> -->
-</launch>
+
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="-0.07 0.031 -0.031 0.3 0.07 -1.570796 support_top_link tf_projector_link 10" />
+<!--
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="0.33 0.03 0.36 0 0.28 3.141592 base_link tf_projector_link 10" />
+-->
+<!--
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="1 1 1 0 0 0 base_link tf_projector_link 30" />
+-->
+
+</launch>	

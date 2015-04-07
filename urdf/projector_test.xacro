@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="projector_test">
+
+<link name="world"/>
+
+
+<link name="link_wall1">
+  <visual>
+    <geometry>
+      <box size="10 10 0.1" />
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="1.0"/>
+    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+  </inertial>
+</link>
+<joint name="joint_wall1" type="fixed">
+  <origin xyz="0 0 0.0" rpy="0 0 0" />
+  <parent link="world" />
+  <child link="link_wall1" />
+</joint>
+
+
+<link name="link_wall2">
+  <visual>
+    <geometry>
+      <box size="10 10 0.1" />
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="1.0"/>
+    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+  </inertial>
+</link>
+<joint name="joint_wall2" type="fixed">
+  <origin xyz="0 0 10.0" rpy="0 0 0" />
+  <parent link="world" />
+  <child link="link_wall2" />
+</joint>
+
+<link name="link_wall3">
+  <visual>
+    <geometry>
+      <box size="10.0 0.1 20.0" />
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="1.0"/>
+    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+  </inertial>
+</link>
+<joint name="joint_wall3" type="fixed">
+  <origin xyz="0 5.0 0.0" rpy="0 0 0" />
+  <parent link="world" />
+  <child link="link_wall3" />
+</joint>
+
+<link name="link_projector">
+  <visual>
+    <geometry>
+      <cylinder length="0.2" radius="0.05" />
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="1.0"/>
+    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+  </inertial>
+</link>
+
+<joint name="joint_projector" type="fixed">
+  <origin xyz="0 0 2.0" rpy="-0.0 0 0" />
+  <parent link="world" />
+  <child link="link_projector" />
+</joint>
+
+<gazebo reference="link_projector">
+  <!--sensor type="projector" name="projector_tester"-->
+  <projector name="projector_test1">
+    <pose>0 0 0 -0.88 0 0</pose>
+    <!-- this isn't getting loaded properly -->
+    <!--texture>$(find projector_test)/urdf/test_pattern.png</texture-->
+    <!-- this doesn't work even with setting GAZEBO_RESOURCE_PATH -->
+    <!--texture>test_pattern.png</texture-->
+    <texture>stereo_projection_pattern_high_res_red.png</texture>
+    <fov>0.95</fov>
+    <near_clip>0.1</near_clip>
+    <far_clip>10.0</far_clip>
+  </projector>
+</gazebo>
+
+<gazebo if="false">
+  <!-- Not sure if this is necessary, didn't need it elsewhere though some 
+      projector things were screwy -->
+    <plugin name="projector_test_controller" filename="libgazebo_ros_projector.so">
+      <projector>projector_test1</projector>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>5.0</updateRate>
+      <textureName>$(find projector_test/urdf/test_pattern.png</textureName>
+      <!-- what is the filter for? -->
+      <filterTextureName>$(find projector_test)/urdf/test_pattern.png</filterTextureName>
+      <textureTopicName>projector_test/image</textureTopicName>
+      <projectorTopicName>projector_test/projector</projectorTopicName>
+    </plugin>
+    <!--/sensor-->
+  </gazebo>
+</robot>
+

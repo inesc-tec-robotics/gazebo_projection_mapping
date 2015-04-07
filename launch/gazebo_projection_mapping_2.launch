@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
+
+<!-- inclui mapa para o gazebo -->
+<!--	<include file="$(find gazebo_ros)/launch/empty_world.launch">  -->
+		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/ship_interior_without_ceilingship_interior_without_ceiling.world" />
+		<arg name="paused" value="false" />
+		<arg name="use_sim_time" value="false" />
+		<arg name="gui" value="true" />
+		<arg name="headless" value="true" />
+		<arg name="debug" value="false" />
+		<arg name="verbose" default="false"/>
+<!--	</include>  -->
+
+<!-- set use_sim_time flag -->
+<!--  <group if="$(arg use_sim_time)"> -->
+
+<!--  </group> -->
+
+<!-- set command arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg use_sim_time)" name="command_arg2" value=""/>
+  <arg     if="$(arg use_sim_time)" name="command_arg2" value="false"/>
+  <arg unless="$(arg headless)" name="command_arg3" value=""/>
+  <arg     if="$(arg headless)" name="command_arg3" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg4" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg4" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- start gazebo server-->
+
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
+	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) $(arg command_arg4) $(arg world_name)" />
+	
+       <param name="/use_sim_time" value="false" /> 
+
+</launch>	
