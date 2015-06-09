@@ -137,9 +137,9 @@
         </link>
       </model>
       <model name='fire_extinguisher_drawing'>
-        <pose>-1.14742 -2.06539 0.772922 -0.000425 -1.5707 -3.1415</pose>
+        <pose>-1.14742 -2.10539 0.702922 -0.000425 -1.5707 -3.1415</pose>
         <link name='link'>
-          <pose>-1.14742 -2.06539 0.772922 -0.000425 -1.5707 -3.1415</pose>
+          <pose>-1.14742 -2.10539 0.702922 -0.000425 -1.5707 -3.1415</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -263,9 +263,9 @@
         </link>
       </model>
       <model name='wall_pipe'>
-        <pose>-2.68572 -1.4638 1.2 -1.5707 5.55112e-17 -1.5707</pose>
+        <pose>-2.68572 -1.4638 1.05 -1.5707 5.55112e-17 -1.5707</pose>
         <link name='link'>
-          <pose>-2.68572 -1.4638 1.2 -1.5707 5.55112e-17 -1.5707</pose>
+          <pose>-2.68572 -1.4638 1.05 -1.5707 5.55112e-17 -1.5707</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>

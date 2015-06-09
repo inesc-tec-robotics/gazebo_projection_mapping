@@ -1,0 +1,372 @@
+<sdf version='1.4'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>-1 -1 1.5 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0 -1</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Black</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+      </link>
+    </model>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0 0 0 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <state world_name='default'>
+      <sim_time>8210 179000000</sim_time>
+      <real_time>2685 283204499</real_time>
+      <wall_time>1428773803 632404302</wall_time>
+      <model name='camera_projection_mapping'>
+        <pose>1.60351 1.6594 0.536126 -1.61364 -0.116287 -2.32446</pose>
+        <link name='projector_link'>
+          <pose>1.60351 1.6594 0.536126 -1.61364 -0.116287 -2.32446</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='dot_grid_0'>
+        <pose>-0.009576 1.14524 0.240414 -1.57079 -0.001496 1.56463</pose>
+        <link name='link'>
+          <pose>-0.009576 1.14524 0.240414 -1.57079 -0.001496 1.56463</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='dot_grid_2'>
+        <pose>1.18939 -0.039532 0.244232 -1.56858 0 0</pose>
+        <link name='link'>
+          <pose>1.18939 -0.039532 0.244232 -1.56858 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fire_extinguisher_drawing'>
+        <pose>-0.006369 0.524156 1.25872 -0.000425 -1.5707 -3.1415</pose>
+        <link name='link'>
+          <pose>-0.006369 0.524156 1.25872 -0.000425 -1.5707 -3.1415</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='fire_hose_reel'>
+        <pose>0.304431 0.000289 1.3728 -3.12259 -1.57079 1.55207</pose>
+        <link name='link'>
+          <pose>0.304431 0.000289 1.3728 -3.12259 -1.57079 1.55207</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='wall_pipe'>
+        <pose>-1.50237 0.787872 0.626307 -1.5707 5.55112e-17 -1.5707</pose>
+        <link name='link'>
+          <pose>-1.50237 0.787872 0.626307 -1.5707 5.55112e-17 -1.5707</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+    <model name='fire_hose_reel'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.8815 0.366 0.007</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://fire_hose_reel/materials/scripts</uri>
+              <uri>model://fire_hose_reel/materials/textures</uri>
+              <name>fire_hose_reel</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+      </link>
+      <pose>-2.85 -2.09 0.59 0 -0 0</pose>
+    </model>
+    <model name='fire_extinguisher_drawing'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>0.315 0.135 0.007</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://fire_extinguisher_drawing/materials/scripts</uri>
+              <uri>model://fire_extinguisher_drawing/materials/textures</uri>
+              <name>fire_extinguisher_drawing</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <model name='wall_pipe'>
+      <static>1</static>
+      <link name='link'>
+        <inertial>
+          <mass>10</mass>
+        </inertial>
+        <visual name='visual'>
+          <transparency>0.2</transparency>
+          <geometry>
+            <mesh>
+              <uri>model://wall_pipe/meshes/wall_pipe.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+    </model>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='dot_grid_0'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>2.4 0.6 0.007</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://dot_grid/materials/scripts</uri>
+              <uri>model://dot_grid/materials/textures</uri>
+              <name>dot_grid</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose>2 -0.53105 0 0 -0 0</pose>
+    </model>
+    <model name='dot_grid_2'>
+      <static>1</static>
+      <link name='link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>2.4 0.6 0.007</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://dot_grid/materials/scripts</uri>
+              <uri>model://dot_grid/materials/textures</uri>
+              <name>dot_grid</name>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose>2 -1 0 0 -0 0</pose>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>1.94542 2.60024 2.60454 3.7e-05 0.359224 -2.12764</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+    <model name='camera_projection_mapping'>
+      <link name='projector_link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.1</iyy>
+            <iyz>0</iyz>
+            <izz>0.1</izz>
+          </inertia>
+        </inertial>
+        <visual name='projector_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.2 0.1 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Wood</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <sensor name='virtual_camera' type='camera'>
+          <camera name='projector_head'>
+            <horizontal_fov>0.812196</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>800</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>25</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0</mean>
+              <stddev>0</stddev>
+            </noise>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>30.0</updateRate>
+            <cameraName>virtual_camera</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera_link</frameName>
+            <CxPrime>644</CxPrime>
+            <Cx>644</Cx>
+            <Cy>630</Cy>
+            <focalLength>389</focalLength>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0</distortionK1>
+            <distortionK2>0</distortionK2>
+            <distortionK3>0</distortionK3>
+            <distortionT1>0</distortionT1>
+            <distortionT2>0</distortionT2>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+        </sensor>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose>196 1.45 0.531 0 -0 -0.353185</pose>
+    </model>
+  </world>
+</sdf>

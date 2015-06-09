@@ -4,7 +4,7 @@
 
 <!-- inclui mapa para o gazebo -->
 <!--	<include file="$(find gazebo_ros)/launch/empty_world.launch">  -->
-		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/demo_stirofone_wall.world" />
+		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/demo_robotica_2015.world" />
 <!--
 		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/lab_with_ambient_light.world" />
 -->
@@ -44,14 +44,14 @@
 <!-- argumentos para a camara -->
 	<arg name="camera_initial_x" default="-5.149733" />
 	<arg name="camera_initial_y" default="-3.107899" />
-	<arg name="camera_initial_z" default="1.250000" />
+	<arg name="camera_initial_z" default="0.531" />
 	<arg name="camera_initial_roll" default="0" />
 	<arg name="camera_initial_pitch" default="0" />
 	<arg name="camera_initial_yaw" default="0.680000" />
 
 <!-- adiciona no da camara com os devidos argumentos -->
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
-		args="-urdf -model camera_projection_mapping -file $(find gazebo_projection_mapping)/urdf/camera.urdf.xacro -x $(arg camera_initial_x) -y $(arg camera_initial_y) -z $(arg camera_initial_z) -R $(arg camera_initial_roll) -P $(arg camera_initial_pitch) -Y $(arg camera_initial_yaw)" />
+<!-- 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false" -->
+<!-- 		args="-urdf -model camera_projection_mapping -file $(find gazebo_projection_mapping)/urdf/camera.urdf.xacro -x $1(arg camera_initial_x) -y $(arg camera_initial_y) -z $(arg camera_initial_z) -R $(arg camera_initial_roll) -P $(arg camera_initial_pitch) -Y $(arg camera_initial_yaw)" /> -->
 
 <!--
 <param name="robot_description"
@@ -76,7 +76,8 @@
 	</node>
 
 
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="-0.07 0.031 -0.031 0.3 0.07 -1.570796 support_top_link tf_projector_link 10" />
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="-0.07 0.031 -0.031 0.3 0.07 -1.570796 support_top_link tf_projector_link 10" /> -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="-0.125 0.0375 -0.031 0.33 0.07 -1.58 support_top_link tf_projector_link 10" /> -->
 <!--
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="0.33 0.03 0.36 0 0.28 3.141592 base_link tf_projector_link 10" />
 -->
