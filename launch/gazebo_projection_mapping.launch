@@ -8,12 +8,13 @@
 	<arg name="camera_initial_roll" default="0" />
 	<arg name="camera_initial_pitch" default="0" />
 	<arg name="camera_initial_yaw" default="0.680000" />
-
+	<arg name="use_gazebo_gui" value="false" />
+	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/demo_robotica_2015.world" />
 		<arg name="paused" value="false" />
 		<arg name="use_sim_time" value="false" />
-		<arg name="gui" value="true" />
+		<arg name="gui" value="$(arg use_gazebo_gui)" />
 		<arg name="headless" value="true" />
 		<arg name="debug" value="false" />
 	</include>
