@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
+
+	<arg name="camera_initial_x" default="-5.149733" />
+	<arg name="camera_initial_y" default="-3.107899" />
+	<arg name="camera_initial_z" default="0.531" />
+	<arg name="camera_initial_roll" default="0" />
+	<arg name="camera_initial_pitch" default="0" />
+	<arg name="camera_initial_yaw" default="0.680000" />
+
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" respawn="false"
+		args="-urdf -model camera_projection_mapping -file $(find gazebo_projection_mapping)/urdf/camera.urdf.xacro -x $(arg camera_initial_x) -y $(arg camera_initial_y) -z $(arg camera_initial_z) -R $(arg camera_initial_roll) -P $(arg camera_initial_pitch) -Y $(arg camera_initial_yaw)" />
+</launch>
