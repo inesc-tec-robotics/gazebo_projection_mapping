@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
-	<arg name="use_gazebo_gui" value="false" />
+	<arg name="use_gazebo_gui" default="false" />
+	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
+	<arg name="world_name" default="demo_robotica_2015.world" />
 	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-		<arg name="world_name" value="$(find gazebo_projection_mapping)/worlds/demo_robotica_2015.world" />
-		<arg name="paused" value="false" />
-		<arg name="use_sim_time" value="false" />
-		<arg name="gui" value="$(arg use_gazebo_gui)" />
-		<arg name="headless" value="false" /> <!-- disables any function calls to simulator rendering (Ogre) components -->
-		<arg name="debug" value="false" />
+		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
+		<arg name="paused" default="false" />
+		<arg name="use_sim_time" default="false" />
+		<arg name="gui" default="$(arg use_gazebo_gui)" />
+		<arg name="headless" default="false" /> <!-- disables any function calls to simulator rendering (Ogre) components -->
+		<arg name="debug" default="false" />
 	</include>
+
+	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" />
 
 	<node pkg="image_view" type="image_view" name="image_view">
 		<param name="autosize" type="bool" value="false" />
-		<remap from="image" to="virtual_camera/image_raw" />
+		<remap from="image" to="virtual_camera/image_rect" />
 	</node>
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node">
@@ -22,5 +26,6 @@
 		<param name="tf_source_frame" type="str" value="projector_link" />
 	</node>
 
+	<!-- <node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" output="screen" /> -->
 	<!-- <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="1.03689 1.58905 0.531 -2.02056 0.07 -1.59 map projector_link 10" /> -->
 </launch>

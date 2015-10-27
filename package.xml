@@ -18,6 +18,7 @@
 	<run_depend>gazebo_msgs</run_depend>
 	<run_depend>gazebo_ros</run_depend>
 	<run_depend>image_view</run_depend>
+	<run_depend>image_proc</run_depend>
 	<run_depend>rosconsole</run_depend>
 	<run_depend>roscpp</run_depend>
 	<run_depend>tf</run_depend>

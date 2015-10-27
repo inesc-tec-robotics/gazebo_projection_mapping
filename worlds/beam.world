@@ -1,0 +1,297 @@
+<sdf version='1.4'>
+	<world name='default'>
+		<model name='ground_plane'>
+			<static>1</static>
+			<link name='link'>
+				<collision name='collision'>
+					<geometry>
+						<plane>
+							<normal>0 0 1</normal>
+							<size>100 100</size>
+						</plane>
+					</geometry>
+					<surface>
+						<friction>
+							<ode>
+								<mu>100</mu>
+								<mu2>50</mu2>
+							</ode>
+						</friction>
+						<bounce />
+						<contact>
+							<ode />
+						</contact>
+					</surface>
+					<max_contacts>10</max_contacts>
+				</collision>
+				<visual name='visual'>
+					<cast_shadows>0</cast_shadows>
+					<geometry>
+						<plane>
+							<normal>0 0 1</normal>
+							<size>100 100</size>
+						</plane>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/Black</name>
+						</script>
+					</material>
+				</visual>
+				<velocity_decay>
+					<linear>0</linear>
+					<angular>0</angular>
+				</velocity_decay>
+				<self_collide>0</self_collide>
+				<kinematic>0</kinematic>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		<model name='beam'>
+			<static>1</static>
+			<link name='link'>
+				<inertial>
+					<mass>1000</mass>
+				</inertial>
+				<visual name='visual'>
+					<geometry>
+						<mesh>
+							<scale>1 1 1</scale>
+							<uri>model://beam/meshes/beam.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/Black</name>
+						</script>
+					</material>
+					<transparency>0</transparency>
+				</visual>
+				<velocity_decay>
+					<linear>0</linear>
+					<angular>0</angular>
+				</velocity_decay>
+				<self_collide>0</self_collide>
+				<kinematic>0</kinematic>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		<model name='beam_weld'>
+			<static>1</static>
+			<link name='link'>
+				<inertial>
+					<mass>1000</mass>
+				</inertial>
+				<visual name='visual'>
+					<geometry>
+						<mesh>
+							<scale>1 1 1</scale>
+							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/White</name>
+						</script>
+					</material>
+					<transparency>0</transparency>
+				</visual>
+				<velocity_decay>
+					<linear>0</linear>
+					<angular>0</angular>
+				</velocity_decay>
+				<self_collide>0</self_collide>
+				<kinematic>0</kinematic>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		<model name='beam_weld_rectangle'>
+			<static>1</static>
+			<link name='link'>
+				<inertial>
+					<mass>1000</mass>
+				</inertial>
+				<visual name='visual'>
+					<geometry>
+						<mesh>
+							<scale>1 1 1</scale>
+							<uri>model://beam_weld_rectangle/meshes/beam_weld_rectangle.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/White</name>
+						</script>
+					</material>
+					<transparency>0</transparency>
+				</visual>
+				<velocity_decay>
+					<linear>0</linear>
+					<angular>0</angular>
+				</velocity_decay>
+				<self_collide>0</self_collide>
+				<kinematic>0</kinematic>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		<model name='camera_projection_mapping'>
+			<link name='projector_link'>
+				<pose>0 0 0 0 -0 0</pose>
+				<inertial>
+					<pose>0 0 0 0 -0 0</pose>
+					<mass>1</mass>
+					<inertia>
+						<ixx>0.1</ixx>
+						<ixy>0</ixy>
+						<ixz>0</ixz>
+						<iyy>0.1</iyy>
+						<iyz>0</iyz>
+						<izz>0.1</izz>
+					</inertia>
+				</inertial>
+				<visual name='projector_link_visual'>
+					<pose>0 0 0 0 -0 0</pose>
+					<geometry>
+						<box>
+							<size>0.1 0.05 0.2</size>
+						</box>
+					</geometry>
+					<material>
+						<script>
+							<name>Gazebo/Wood</name>
+							<uri>__default__</uri>
+						</script>
+					</material>
+				</visual>
+				<gravity>1</gravity>
+				<velocity_decay>
+					<linear>0</linear>
+					<angular>0</angular>
+				</velocity_decay>
+				<self_collide>0</self_collide>
+				<sensor name='virtual_camera' type='camera'>
+					<camera name='projector_head'>
+						<horizontal_fov>0.812196</horizontal_fov>
+						<image>
+							<width>1280</width>
+							<height>800</height>
+							<format>R8G8B8</format>
+						</image>
+						<clip>
+							<near>0.19</near>
+							<far>3.2</far>
+						</clip>
+						<noise>
+							<type>gaussian</type>
+							<mean>0</mean>
+							<stddev>0</stddev>
+						</noise>
+					</camera>
+					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
+						<alwaysOn>true</alwaysOn>
+						<updateRate>30.0</updateRate>
+						<cameraName>virtual_camera</cameraName>
+						<imageTopicName>image_raw</imageTopicName>
+						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+						<frameName>camera_link</frameName>
+						<CxPrime>0</CxPrime>
+						<Cx>0</Cx>
+						<Cy>0</Cy>
+						<focalLength>0</focalLength>
+						<hackBaseline>0.07</hackBaseline>
+						<distortionK1>0</distortionK1>
+						<distortionK2>0</distortionK2>
+						<distortionK3>0</distortionK3>
+						<distortionT1>0</distortionT1>
+						<distortionT2>0</distortionT2>
+						<robotNamespace>/</robotNamespace>
+					</plugin>
+				</sensor>
+				<kinematic>0</kinematic>
+			</link>
+			<static>1</static>
+		</model>
+		<physics type='ode'>
+			<max_step_size>0.1</max_step_size>
+			<real_time_factor>1</real_time_factor>
+			<real_time_update_rate>10</real_time_update_rate>
+			<max_contacts>3</max_contacts>
+			<gravity>0 0 -9.8</gravity>
+			<ode>
+				<solver>
+					<min_step_size>0.1</min_step_size>
+					<iters>1</iters>
+				</solver>
+			</ode>
+		</physics>
+		<scene>
+			<ambient>1 1 1 1</ambient>
+			<background>0 0 0 1</background>
+			<shadows>1</shadows>
+		</scene>
+		<state world_name='default'>
+			<model name='ground_plane'>
+				<pose>0 0 0 0 -0 0</pose>
+				<link name='link'>
+					<pose>0 0 0 0 -0 0</pose>
+					<velocity>0 0 0 0 -0 0</velocity>
+					<acceleration>0 0 0 0 -0 0</acceleration>
+					<wrench>0 0 0 0 -0 0</wrench>
+				</link>
+			</model>
+			<model name='camera_projection_mapping'>
+				<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
+				<link name='projector_link'>
+					<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
+					<velocity>0 0 0 0 -0 0</velocity>
+					<acceleration>0 0 0 0 -0 0</acceleration>
+					<wrench>0 0 0 0 -0 0</wrench>
+				</link>
+			</model>
+			<model name='beam'>
+				<pose>0 0 0.183 0 0 0</pose>
+				<link name='link'>
+					<pose>0 0 0.183 0 0 0</pose>
+					<velocity>0 0 0 0 -0 0</velocity>
+					<acceleration>0 0 0 0 -0 0</acceleration>
+					<wrench>0 0 0 0 -0 0</wrench>
+				</link>
+			</model>
+			<model name='beam_weld'>
+				<pose>0.1415 0 0.183 0 0 0</pose>
+				<link name='link'>
+					<pose>0.1415 0 0.183 0 0 0</pose>
+					<velocity>0 0 0 0 -0 0</velocity>
+					<acceleration>0 0 0 0 -0 0</acceleration>
+					<wrench>0 0 0 0 -0 0</wrench>
+				</link>
+			</model>
+			<model name='beam_weld_rectangle'>
+				<pose>0.145 -0.008 0.183 1.57079632679 2.35619449019 0</pose>
+				<link name='link'>
+					<pose>0.145 -0.008 0.183 1.57079632679 2.35619449019 0</pose>
+					<velocity>0 0 0 0 -0 0</velocity>
+					<acceleration>0 0 0 0 -0 0</acceleration>
+					<wrench>0 0 0 0 -0 0</wrench>
+				</link>
+			</model>
+		</state>
+		<spherical_coordinates>
+			<surface_model>EARTH_WGS84</surface_model>
+			<latitude_deg>0</latitude_deg>
+			<longitude_deg>0</longitude_deg>
+			<elevation>0</elevation>
+			<heading_deg>0</heading_deg>
+		</spherical_coordinates>
+		<gui fullscreen='0'>
+			<camera name='user_camera'>
+				<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
+				<view_controller>orbit</view_controller>
+			</camera>
+		</gui>
+	</world>
+</sdf>
