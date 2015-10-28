@@ -50,11 +50,11 @@
 				<frameName>camera_link</frameName>
 
 				<!-- camera intrinsic parameters -->
-				<CxPrime>644</CxPrime> 										<!-- if 0 - > (image_width + 1) / 2 -->
-				<Cx>644</Cx> 												<!-- if 0 - > (image_width + 1) / 2 -->
-				<Cy>630</Cy> 												<!-- if 0 - > (image_height + 1) / 2 -->
-				<focalLength>389</focalLength> 								<!-- if 0 - > image_width / (2 * tan(HFOV_radians / 2)) -->
-				<hackBaseline>0.07</hackBaseline>	
+				<CxPrime>0</CxPrime> 										<!-- if 0 - > (image_width + 1) / 2 -->
+				<Cx>0</Cx> 													<!-- if 0 - > (image_width + 1) / 2 -->
+				<Cy>0</Cy> 													<!-- if 0 - > (image_height + 1) / 2 -->
+				<focalLength>0</focalLength> 								<!-- if 0 - > image_width / (2 * tan(HFOV_radians / 2)) -->
+				<hackBaseline>0</hackBaseline>								<!-- Projection/camera matrix Tx=focal_length * hack_baseline -->
 
 
 				<!-- parameters that will be available in future versions of Gazebo -->

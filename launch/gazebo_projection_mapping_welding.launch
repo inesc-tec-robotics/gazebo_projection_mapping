@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="use_gazebo_gui" default="false" />
+	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
+	<arg name="world_name" default="welding.world" />
+	<arg name="attach_welds_to_beam_pose" default="true" />
+	<arg name="static_projector_pose" default="true" />
+	<arg name="static_beam_pose" default="true" />
+
+	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping.launch">
+		<arg name="use_gazebo_gui" default="$(arg use_gazebo_gui)" />
+		<arg name="world_folder" default="$(arg world_folder)" />
+		<arg name="world_name" default="$(arg world_name)" />
+	</include>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam">
+		<param name="gazebo_link_name" type="str" value="beam_link" />
+		<param name="tf_source_frame" type="str" value="beam_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld">
+		<param name="gazebo_link_name" type="str" value="beam_weld_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_rectangle">
+		<param name="gazebo_link_name" type="str" value="beam_weld_rectangle_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_rectangle_link" />
+	</node>
+
+	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping_welding_tfs.launch">
+		<arg name="attach_welds_to_beam_pose" default="$(arg attach_welds_to_beam_pose)" />
+		<arg name="static_projector_pose" default="$(arg static_projector_pose)" />
+		<arg name="static_beam_pose" default="$(arg static_beam_pose)" />
+	</include>
+</launch>

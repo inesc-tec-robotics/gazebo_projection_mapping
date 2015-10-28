@@ -50,7 +50,7 @@
 		</model>
 		<model name='beam'>
 			<static>1</static>
-			<link name='link'>
+			<link name='beam_link'>
 				<inertial>
 					<mass>1000</mass>
 				</inertial>
@@ -80,7 +80,7 @@
 		</model>
 		<model name='beam_weld'>
 			<static>1</static>
-			<link name='link'>
+			<link name='beam_weld_link'>
 				<inertial>
 					<mass>1000</mass>
 				</inertial>
@@ -110,7 +110,7 @@
 		</model>
 		<model name='beam_weld_rectangle'>
 			<static>1</static>
-			<link name='link'>
+			<link name='beam_weld_rectangle_link'>
 				<inertial>
 					<mass>1000</mass>
 				</inertial>
@@ -175,7 +175,7 @@
 				<self_collide>0</self_collide>
 				<sensor name='virtual_camera' type='camera'>
 					<camera name='projector_head'>
-						<horizontal_fov>0.812196</horizontal_fov>
+						<horizontal_fov>0.840132614</horizontal_fov>
 						<image>
 							<width>1280</width>
 							<height>800</height>
@@ -199,10 +199,10 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 						<CxPrime>0</CxPrime>
-						<Cx>0</Cx>
-						<Cy>0</Cy>
+						<Cx>629.285730</Cx>
+						<Cy>360.675081</Cy>
 						<focalLength>0</focalLength>
-						<hackBaseline>0.07</hackBaseline>
+						<hackBaseline>0</hackBaseline>
 						<distortionK1>0</distortionK1>
 						<distortionK2>0</distortionK2>
 						<distortionK3>0</distortionK3>
@@ -244,9 +244,9 @@
 				</link>
 			</model>
 			<model name='camera_projection_mapping'>
-				<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
+				<pose>0.598 -0.125 1.473 -3.139 1.455 1.619</pose>
 				<link name='projector_link'>
-					<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
+					<pose>0.598 -0.125 1.473 -3.139 1.455 1.619</pose>
 					<velocity>0 0 0 0 -0 0</velocity>
 					<acceleration>0 0 0 0 -0 0</acceleration>
 					<wrench>0 0 0 0 -0 0</wrench>
@@ -254,7 +254,7 @@
 			</model>
 			<model name='beam'>
 				<pose>0 0 0.183 0 0 0</pose>
-				<link name='link'>
+				<link name='beam_link'>
 					<pose>0 0 0.183 0 0 0</pose>
 					<velocity>0 0 0 0 -0 0</velocity>
 					<acceleration>0 0 0 0 -0 0</acceleration>
@@ -263,7 +263,7 @@
 			</model>
 			<model name='beam_weld'>
 				<pose>0.1415 0 0.183 0 0 0</pose>
-				<link name='link'>
+				<link name='beam_weld_link'>
 					<pose>0.1415 0 0.183 0 0 0</pose>
 					<velocity>0 0 0 0 -0 0</velocity>
 					<acceleration>0 0 0 0 -0 0</acceleration>
@@ -272,7 +272,7 @@
 			</model>
 			<model name='beam_weld_rectangle'>
 				<pose>0.145 -0.008 0.183 1.57079632679 2.35619449019 0</pose>
-				<link name='link'>
+				<link name='beam_weld_rectangle_link'>
 					<pose>0.145 -0.008 0.183 1.57079632679 2.35619449019 0</pose>
 					<velocity>0 0 0 0 -0 0</velocity>
 					<acceleration>0 0 0 0 -0 0</acceleration>

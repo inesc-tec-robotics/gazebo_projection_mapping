@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="attach_welds_to_beam_pose" default="true" />
+	<arg name="static_projector_pose" default="true" />
+	<arg name="static_beam_pose" default="true" />
+
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.33867 0 0 0 0 0 map map_top_right_board 10" 																				if="$(arg static_projector_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="-0.3612 0.0904 1.4962 -3.10528981 -0.0235619449 -3.12832815 map_top_right_board camera_link_calib 10" 				if="$(arg static_projector_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera" 					args="0 0 0 1.57079632679 -1.57079632679 0 camera_link_calib camera_link 10" 										if="$(arg static_projector_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 			args="-0.2349856331495151 -0.04814665527026108 -0.01797494879497469 -0.05155121269375851 0.012001809648391667 0.004180154947847502 0.9985894828905294 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 				args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link 10" 								if="$(arg static_projector_pose)" />
+
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0 0 0.183 0 0 0 map beam_link 10" 																			if="$(arg static_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld" 				args="0.1415 0 0 0 0 0 beam_link beam_weld_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="0.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link 10" 							if="$(arg attach_welds_to_beam_pose)" />
+</launch>
