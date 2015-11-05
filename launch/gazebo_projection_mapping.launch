@@ -4,6 +4,7 @@
 	<arg name="use_gazebo_gui" default="false" />
 	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
 	<arg name="world_name" default="demo_robotica_2015.world" />
+	<arg name="show_image" default="true" />
 	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
@@ -14,11 +15,9 @@
 		<arg name="debug" default="false" />
 	</include>
 
-	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" />
-
-	<node pkg="image_view" type="image_view" name="image_view">
+	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
 		<param name="autosize" type="bool" value="false" />
-		<remap from="image" to="virtual_camera/image_rect" />
+		<remap from="image" to="virtual_camera/image_raw" />
 	</node>
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">

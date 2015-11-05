@@ -64,7 +64,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/Black</name>
+							<name>Gazebo/DarkGrey</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -138,11 +138,88 @@
 				<gravity>0</gravity>
 			</link>
 		</model>
+		
+		<!--<model name="distorted_projector">-->
+			<!--<link name="projector_link_2">-->
+				<!--<pose>0 0 0 0 0 0</pose>-->
+				<!--<inertial>-->
+					<!--<mass>0.1</mass>-->
+				<!--</inertial>-->
+				<!--<collision name="collision">-->
+					<!--<geometry>-->
+						<!--<box>-->
+							<!--<size>0.1 0.1 0.1</size>-->
+						<!--</box>-->
+					<!--</geometry>-->
+				<!--</collision>-->
+				<!--<visual name="visual">-->
+					<!--<geometry>-->
+						<!--<box>-->
+							<!--<size>0.1 0.1 0.1</size>-->
+						<!--</box>-->
+					<!--</geometry>-->
+				<!--</visual>-->
+				<!--<sensor name="camera" type="camera">-->
+					<!--<camera>-->
+						<!--&lt;!&ndash; <horizontal_fov>1.151930221</horizontal_fov> &ndash;&gt;-->
+						<!--<horizontal_fov>1.81982</horizontal_fov>-->
+						<!--<image>-->
+							<!--<width>1280</width>-->
+							<!--<height>800</height>-->
+							<!--<format>R8G8B8</format>-->
+						<!--</image>-->
+						<!--<clip>-->
+							<!--<near>0.19</near>-->
+							<!--<far>3.2</far>-->
+						<!--</clip>-->
+						<!--<save enabled="1">-->
+							<!--<path>/home/carloscosta/catkin_ws/src/gazebo_projection_mapping/frames/</path>-->
+						<!--</save>-->
+						<!--<distortion>-->
+							<!--<k1>-0.0216245</k1>-->
+							<!--<k2>0.00355186</k2>-->
+							<!--<k3>-0.433392</k3>-->
+							<!--<p1>-0.00480772</p1>-->
+							<!--<p2>0.000386425</p2>-->
+							<!--<center>0.976991 0.490102</center>-->
+							<!--&lt;!&ndash; <center>0.509898 0.023009</center> &ndash;&gt;-->
+						<!--</distortion>-->
+					<!--</camera>-->
+					<!--<always_on>1</always_on>-->
+					<!--<update_rate>0.05</update_rate>-->
+					<!--<visualize>true</visualize>-->
+				<!--</sensor>-->
+			<!--</link>-->
+			<!--<static>1</static>-->
+		<!--</model>-->
+
+		<!--<model name="calibration_pattern">
+			<static>true</static>
+			<link name="link">
+				<pose>0.153675 0.10245 0 0 0 0</pose>
+				<visual name="visual">
+					<cast_shadows>false</cast_shadows>
+					<geometry>
+						<box>
+							<size>0.37565 0.2732 0.001</size>
+						</box>
+					</geometry>
+					<material>
+						<script>
+							<uri>model://calibration_pattern/materials/scripts</uri>
+							<uri>model://calibration_pattern/materials/textures</uri>
+							<name>calibration_pattern</name>
+						</script>
+					</material>
+				</visual>
+			</link>
+		</model>-->
+
 		<model name='camera_projection_mapping'>
 			<link name='projector_link'>
-				<pose>0 0 0 0 -0 0</pose>
+				<pose>0 0 0 0 0 0</pose>
 				<inertial>
-					<pose>0 0 0 0 -0 0</pose>
+					<pose>0 0 0 0 0 0</pose>
 					<mass>1</mass>
 					<inertia>
 						<ixx>0.1</ixx>
@@ -157,7 +234,7 @@
 					<pose>0 0 0 0 -0 0</pose>
 					<geometry>
 						<box>
-							<size>0.1 0.05 0.2</size>
+							<size>0.3 0.2 0.1</size>
 						</box>
 					</geometry>
 					<material>
@@ -175,7 +252,10 @@
 				<self_collide>0</self_collide>
 				<sensor name='virtual_camera' type='camera'>
 					<camera name='projector_head'>
-						<horizontal_fov>0.840132614</horizontal_fov>
+						<!--<projection_type>perspective</projection_type>-->
+						<!--<horizontal_fov>1.81982</horizontal_fov>-->
+						<horizontal_fov>1.15</horizontal_fov>
+						<!--<horizontal_fov>0.6</horizontal_fov>-->
 						<image>
 							<width>1280</width>
 							<height>800</height>
@@ -190,17 +270,91 @@
 							<mean>0</mean>
 							<stddev>0</stddev>
 						</noise>
+						<!--<save enabled="0">-->
+							<!--<path>/home/carloscosta/catkin_ws/src/gazebo_projection_mapping/frames/</path>-->
+						<!--</save>-->
+
+						<!--projector brown-->
+						<!--<intrinsics>
+							<fx>975.009743</fx>
+							<fy>1949.692007</fy>
+							<cx>302.915608</cx>
+							<cy>−9.869333</cy> &lt;!&ndash;800 - 809.869333&ndash;&gt;
+							<s>0.0</s>
+						</intrinsics>-->
+
+						<!--projector david-->
+						<!--<intrinsics>
+							<fx>1819.82</fx>
+							<fy>2422.27</fy>
+							<cx>627.33056</cx>
+							<cy>18.4072</cy> &lt;!&ndash;800 - 781.5928&ndash;&gt;
+							<s>0.0</s>
+						</intrinsics>-->
+
+
+						<!--projector david tests-->
+						<intrinsics>
+							<fx>1400.82</fx>
+							<fy>2000.27</fy>
+							<cx>647.03056</cx>
+							<cy>-9.4072</cy> <!--800 - 781.5928-->
+							<s>0.0</s>
+						</intrinsics>
+
+						<!--camera-->
+						<!--<intrinsics>
+							<fx>3209.7526805106822</fx>
+							<fy>3209.7526805106822</fy>
+							<cx>647.09114576801016</cx>
+							<cy>489.20051250997824</cy>
+							<s>0.99959122576659309</s>
+						</intrinsics>-->
+
+						<distortion>
+							<k1>-0.0216245</k1>
+							<k2>0.00355186</k2>
+							<k3>-0.433392</k3>
+							<p1>-0.00480772</p1>
+							<p2>0.000386425</p2>
+							<center>0.5 0.5</center>
+							<!--<center>0.490102 0.976991434</center>-->
+							<!--<center>0.509898 0.023009	</center>-->
+						</distortion>
+
+						<!-- with keystone -->
+						<!--<distortion>-->
+							<!--<k1>0.0240241</k1>-->
+							<!--<k2>-1.27095</k2>-->
+							<!--<k3>4.55094</k3>-->
+							<!--<p1>0.000274546</p1>-->
+							<!--<p2>0.00110682</p2>-->
+							<!--<center>0.489574 0.5299882</center>-->
+						<!--</distortion>-->
 					</camera>
+					<visualize>1</visualize>
 					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
 						<alwaysOn>true</alwaysOn>
-						<updateRate>30.0</updateRate>
+						<updateRate>30</updateRate>
 						<cameraName>virtual_camera</cameraName>
 						<imageTopicName>image_raw</imageTopicName>
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
+
+						<!--<CxPrime>627.33056</CxPrime>-->
+						<!--<Cx>627.33056</Cx>-->
+						<!--<Cy>781.5928</Cy>-->
+						<!--<focalLength>0</focalLength>-->
+						<!--<hackBaseline>0</hackBaseline>-->
+						<!--<distortionK1>-0.0216245</distortionK1>-->
+						<!--<distortionK2>0.00355186</distortionK2>-->
+						<!--<distortionK3>-0.433392</distortionK3>-->
+						<!--<distortionT1>-0.00480772</distortionT1>-->
+						<!--<distortionT2>0.000386425</distortionT2>-->
+
 						<CxPrime>0</CxPrime>
-						<Cx>629.285730</Cx>
-						<Cy>360.675081</Cy>
+						<Cx>0</Cx>
+						<Cy>0</Cy>
 						<focalLength>0</focalLength>
 						<hackBaseline>0</hackBaseline>
 						<distortionK1>0</distortionK1>
@@ -208,6 +362,7 @@
 						<distortionK3>0</distortionK3>
 						<distortionT1>0</distortionT1>
 						<distortionT2>0</distortionT2>
+
 						<robotNamespace>/</robotNamespace>
 					</plugin>
 				</sensor>

@@ -6,11 +6,14 @@
 	<arg name="attach_welds_to_beam_pose" default="true" />
 	<arg name="static_projector_pose" default="true" />
 	<arg name="static_beam_pose" default="true" />
+	<arg name="publish_tfs" default="true" />
+	<arg name="show_image" default="true" />
 
 	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping.launch">
 		<arg name="use_gazebo_gui" default="$(arg use_gazebo_gui)" />
 		<arg name="world_folder" default="$(arg world_folder)" />
 		<arg name="world_name" default="$(arg world_name)" />
+		<arg name="show_image" default="$(arg show_image)" />
 	</include>
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam">
@@ -28,7 +31,7 @@
 		<param name="tf_source_frame" type="str" value="beam_weld_rectangle_link" />
 	</node>
 
-	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping_welding_tfs.launch">
+	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping_welding_tfs.launch" if="$(arg publish_tfs)">
 		<arg name="attach_welds_to_beam_pose" default="$(arg attach_welds_to_beam_pose)" />
 		<arg name="static_projector_pose" default="$(arg static_projector_pose)" />
 		<arg name="static_beam_pose" default="$(arg static_beam_pose)" />

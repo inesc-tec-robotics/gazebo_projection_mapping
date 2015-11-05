@@ -23,7 +23,7 @@
 		<static>true</static>
 		<sensor type="camera" name="virtual_camera">
 			<camera name="projector_head">
-				<horizontal_fov>0.812196</horizontal_fov> 					<!-- horizontal field of view in radians -> FOV = 2 arctan(image_width / (2 * focal_lenght)) -->
+				<horizontal_fov>0.839669424</horizontal_fov> 				<!-- horizontal field of view in radians -> FOV = 2 arctan(image_width / (2 * focal_lenght)) -->
 				<image>
 					<width>1280</width>
 					<height>800</height>

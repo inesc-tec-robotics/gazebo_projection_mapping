@@ -4,13 +4,44 @@
 	<arg name="static_projector_pose" default="true" />
 	<arg name="static_beam_pose" default="true" />
 
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.33867 0 0 0 0 0 map map_top_right_board 10" 																				if="$(arg static_projector_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="-0.3612 0.0904 1.4962 -3.10528981 -0.0235619449 -3.12832815 map_top_right_board camera_link_calib 10" 				if="$(arg static_projector_pose)" />
+	<!-- origin adjustment tests -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.1524015 −0.101601 0 0 0 0 map map_top_right_board 10" 																if="$(arg static_projector_pose)" /> -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.304803 0 0 1.57079632679 0 0 map map_top_right_board 10" 																if="$(arg static_projector_pose)" /> -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.304803 -0.277069 0 0 0 0 map map_top_right_board 10" 																if="$(arg static_projector_pose)" /> -->
+	
+	
+	
+	<!-- origin adjustment -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib_rotated" 	args="0.30935 0 0 0 0 0 map map_top_right_board 10" 																		if="$(arg static_projector_pose)" />
+
+
+	<!-- tests -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.29798040273509 0.0070332757356513 -0.92595025446955 -0.03520419983751907 0.05331941555231265 0.9939241530583725 0.13738917713385396 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" /> inverse -->
+<!-- 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="-0.1771 0.5110 0.9332 -1.6276941 -0.27977628 -3.04175982 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" /> -->
+
+
+
+	<!-- calibration 34.150 -->
+	<!--<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.2079 0.1786 0.9410 3.08469492 -0.27977628 -3.04175982 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" />-->
+
+	<!-- calibration 34.150 tests -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.2079 0.1786 0.9410 3.08469492 -0.27977628 -3.04175982 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" />
+	
+	<!-- calibration 33.867 -->
+	<!--<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.2062 0.1771 0.9332 3.08469492 -0.27977628 -3.04175982 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" />-->
+	<!--<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.2062 0.1771 0.9332 -0.03508634110455114 0.053349513551328755 0.9884001168072247 -0.13779690550660473 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" /> -->
+	
+	
+	
+	
+	
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera" 					args="0 0 0 1.57079632679 -1.57079632679 0 camera_link_calib camera_link 10" 										if="$(arg static_projector_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 			args="-0.2349856331495151 -0.04814665527026108 -0.01797494879497469 -0.05155121269375851 0.012001809648391667 0.004180154947847502 0.9985894828905294 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 				args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link 10" 								if="$(arg static_projector_pose)" />
+
+	<!--<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 			args="0.55345145074425 -0.14371132463232 -0.41102943411694 -0.1494433605711517 -0.1480811045358572 -0.035893439454563206 0.9769597378934085 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" /> 33.867 squares-->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 			args="0.55345145074425 -0.14371132463232 -0.41102943411694 -0.1494433605711517 -0.1480811045358572 -0.035893439454563206 0.9769597378934085 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" /> <!--33.867 squares-->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 				args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link 10" 									if="$(arg static_projector_pose)" />
 
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0 0 0.183 0 0 0 map beam_link 10" 																			if="$(arg static_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld" 				args="0.1415 0 0 0 0 0 beam_link beam_weld_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="0.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link 10" 							if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld" 				args="0 0 0 0 0 0 beam_link beam_weld_link 10" 																		if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="0 -0.008 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_link 10" 								if="$(arg attach_welds_to_beam_pose)" />
 </launch>
