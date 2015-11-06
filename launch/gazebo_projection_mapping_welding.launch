@@ -21,14 +21,39 @@
 		<param name="tf_source_frame" type="str" value="beam_link" />
 	</node>
 
-	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld">
-		<param name="gazebo_link_name" type="str" value="beam_weld_link" />
-		<param name="tf_source_frame" type="str" value="beam_weld_link" />
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_begin">
+		<param name="gazebo_link_name" type="str" value="beam_weld_begin_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_begin_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_end">
+		<param name="gazebo_link_name" type="str" value="beam_weld_end_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_end_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_middle_begin">
+		<param name="gazebo_link_name" type="str" value="beam_weld_middle_begin_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_middle_begin_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_middle_end">
+		<param name="gazebo_link_name" type="str" value="beam_weld_middle_end_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_middle_end_link" />
 	</node>
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_rectangle">
 		<param name="gazebo_link_name" type="str" value="beam_weld_rectangle_link" />
 		<param name="tf_source_frame" type="str" value="beam_weld_rectangle_link" />
+	</node>
+	
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_rectangle_top">
+		<param name="gazebo_link_name" type="str" value="beam_weld_rectangle_top_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_rectangle_top_link" />
+	</node>
+	
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_calibration_pattern">
+		<param name="gazebo_link_name" type="str" value="calibration_pattern_link" />
+		<param name="tf_source_frame" type="str" value="calibration_pattern_link" />
 	</node>
 
 	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping_welding_tfs.launch" if="$(arg publish_tfs)">
