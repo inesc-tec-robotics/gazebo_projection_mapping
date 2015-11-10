@@ -394,79 +394,24 @@
 						<!--<save enabled="0">-->
 							<!--<path>/home/carloscosta/catkin_ws/src/gazebo_projection_mapping/frames/</path>-->
 						<!--</save>-->
-
-						<!--projector brown-->
-						<!--<intrinsics>
-							<fx>975.009743</fx>
-							<fy>1949.692007</fy>
-							<cx>302.915608</cx>
-							<cy>−9.869333</cy> &lt;!&ndash;800 - 809.869333&ndash;&gt;
-							<s>0.0</s>
-						</intrinsics>-->
-
-						<!--projector david-->
-						<!--<intrinsics>
-							<fx>1819.82</fx>
-							<fy>2422.27</fy>
-							<cx>627.33056</cx>
-							<cy>18.4072</cy> &lt;!&ndash;800 - 781.5928&ndash;&gt;
-							<s>0.0</s>
-						</intrinsics>-->
-
-
-						<!--projector david tests-->
-						<!-- <intrinsics>
-							<fx>1400.82</fx>
-							<fy>2000.27</fy>
-							<cx>647.03056</cx>
-							<cy>-9.4072</cy> 800 - 781.5928
-							<s>0.0</s>
-						</intrinsics> -->
-
-						<!--projector brown manta-->
-						<!-- <intrinsics>
-							<fx>972.46779176751329</fx>
-							<fy>1944.1051804160409</fy>
-							<cx>319.43918923042651</cx>
-							<cy>-20.48429483319410</cy> 800 - 820.48429483319410
-							<s>0.0</s>
-						</intrinsics> -->
 						
-						<!-- projector brown manta 1280 -->
-						<!-- <intrinsics>
-							<fx>972.45043972877431</fx>
-							<fy>1944.0573880582622</fy>
-							<cx>639.38305584969407</cx>
-							<cy>-20.49821890332259</cy>
-							<s>0.0</s>
-						</intrinsics> -->
-						
-						<!-- projector brown manta 1280 manual -->
-						<!-- <intrinsics>
-							<fx>1950.900879458</fx>
-							<fy>1952.4573880582622</fy>
-							<cx>639.48305584969407</cx>
-							<cy>-23.39821890332259</cy>
-							<s>0.0</s>
-						</intrinsics> -->
-
-						<!-- projector brown manta 1280 manual new location -->
+						<!-- projector brown manta v8 34.23 squares -->
 						<intrinsics>
-							<fx>1946.0158769</fx>
-							<fy>1947.5771183393008</fy>
-							<cx>622.0705058</cx>
-							<cy>-18.46509926408887</cy>
+							<fx>1950.535121562</fx>
+							<fy>1950.0172005493810</fy>
+							<cx>611.636478629</cx>
+							<cy>-6.52387198283725</cy>
 							<s>0.0</s>
 						</intrinsics>
 
-						<distortion>
-							<k1>0.012082058416032264</k1>
-							<k2>0.0045460028337881587</k2>
-							<k3>0.00076963656424207003</k3>
-							<p1>-0.0010242093792977467</p1>
+						<!-- <distortion>
+							<k1>-0.012082058416032264</k1>
+							<k2>-0.0045460028337881587</k2>
+							<k3>-0.00076963656424207003</k3>
+							<p1>0.0010242093792977467</p1>
 							<p2>0.0</p2>
 							<center>0.5 0.5</center>
-						</distortion>
+						</distortion> -->
 					</camera>
 					<visualize>1</visualize>
 					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
@@ -477,27 +422,17 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<!--<CxPrime>627.33056</CxPrime>-->
-						<!--<Cx>627.33056</Cx>-->
-						<!--<Cy>781.5928</Cy>-->
-						<!--<focalLength>0</focalLength>-->
-						<!--<hackBaseline>0</hackBaseline>-->
-						<!--<distortionK1>-0.0216245</distortionK1>-->
-						<!--<distortionK2>0.00355186</distortionK2>-->
-						<!--<distortionK3>-0.433392</distortionK3>-->
-						<!--<distortionT1>-0.00480772</distortionT1>-->
-						<!--<distortionT2>0.000386425</distortionT2>-->
-
-						<CxPrime>0</CxPrime>
-						<Cx>0</Cx>
-						<Cy>0</Cy>
-						<focalLength>0</focalLength>
+						<CxPrime>612.336478629</CxPrime>
+						<Cx>611.636478629</Cx>
+						<Cy>-6.52387198283725</Cy>
+						<focalLengthX>1950.535121562</focalLengthX>
+						<focalLengthY>1950.0172005493810</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						<distortionK1>0</distortionK1>
-						<distortionK2>0</distortionK2>
-						<distortionK3>0</distortionK3>
-						<distortionT1>0</distortionT1>
-						<distortionT2>0</distortionT2>
+						<!-- <distortionK1>0.019567592672342945</distortionK1>
+						<distortionK2>-0.055567536323515487</distortionK2>
+						<distortionK3>0.0015400943749672583</distortionK3>
+						<distortionT1>0.0022158546005377855</distortionT1>
+						<distortionT2>0</distortionT2> -->
 
 						<robotNamespace>/</robotNamespace>
 					</plugin>

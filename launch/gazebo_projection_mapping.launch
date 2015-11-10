@@ -15,9 +15,12 @@
 		<arg name="debug" default="false" />
 	</include>
 
+
+	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" />
+
 	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
 		<param name="autosize" type="bool" value="false" />
-		<remap from="image" to="virtual_camera/image_raw" />
+		<remap from="image" to="virtual_camera/image_rect" />
 	</node>
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">
