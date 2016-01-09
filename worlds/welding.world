@@ -371,7 +371,7 @@
 					<angular>0</angular>
 				</velocity_decay>
 				<self_collide>0</self_collide>
-				<sensor name='virtual_camera' type='camera'>
+				<sensor name='virtual_camera' type='camera'>				<!-- camera | wideanglecamera -->
 					<camera name='projector_head'>
 						<!--<projection_type>perspective</projection_type>-->
 						<!--<horizontal_fov>1.81982</horizontal_fov>-->
@@ -394,15 +394,6 @@
 						<!--<save enabled="0">-->
 							<!--<path>/home/carloscosta/catkin_ws/src/gazebo_projection_mapping/frames/</path>-->
 						<!--</save>-->
-						
-						<!-- projector brown manta v8 34.23 squares -->
-						<intrinsics>
-							<fx>1950.535121562</fx>
-							<fy>1950.0172005493810</fy>
-							<cx>611.636478629</cx>
-							<cy>-6.52387198283725</cy>
-							<s>0.0</s>
-						</intrinsics>
 
 						<!-- <distortion>
 							<k1>-0.012082058416032264</k1>
@@ -412,6 +403,30 @@
 							<p2>0.0</p2>
 							<center>0.5 0.5</center>
 						</distortion> -->
+
+						<lens>
+							<!-- <type>gnomonical</type>							Type of the lens mapping. Supported values are gnomonical, stereographic, equidistant, equisolid_angle, orthographic, custom. For gnomonical (perspective) projection, it is recommended to specify a horizontal_fov of less than or equal to 90°
+							<scale_to_hfov>true</scale_to_hfov>				If true the image will be scaled to fit horizontal FOV, otherwise it will be shown according to projection type parameters
+							<cutoff_angle>1.5707</cutoff_angle>				Everything outside of the specified angle will be hidden, 90° by default
+							<env_texture_size>1024</env_texture_size>		Resolution of the environment cube map used to draw the world
+							Custom mapping function in a form of r=c1*f*fun(theta/c2 + c3)
+							<custom_function>
+								<c1>1.05</c1>	linear scaling
+								<c2>4</c2>		angle scaling
+								<c3>0</c3>		angle offset
+								<f>1.0</f>		Focal length of the optical system. Note: It's not a focal length of the lens in a common sense! This value is ignored if 'scale_to_fov' is set to true
+								<fun>tan</fun>	one of sin,tan,id
+							</custom_function> -->
+							
+							<!-- projector brown manta v8 34.23 squares -->
+							<intrinsics>
+								<fx>1950.535121562</fx>
+								<fy>1950.0172005493810</fy>
+								<cx>611.636478629</cx>
+								<cy>-6.52387198283725</cy>
+								<s>0.0</s>
+							</intrinsics>
+						</lens>
 					</camera>
 					<visualize>1</visualize>
 					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
@@ -441,6 +456,13 @@
 			</link>
 			<static>1</static>
 		</model>
+
+		<!-- <include>
+			<static>true</static>
+			<uri>model://calibration_pattern</uri>
+			<pose>-0.041574 0.048175 1.28022 0 -0 0</pose>
+		</include> -->
+		
 		<physics type='ode'>
 			<max_step_size>0.1</max_step_size>
 			<real_time_factor>1</real_time_factor>
