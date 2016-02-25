@@ -396,11 +396,11 @@
 						<!--</save>-->
 
 						<!-- <distortion>
-							<k1>-0.012082058416032264</k1>
-							<k2>-0.0045460028337881587</k2>
-							<k3>-0.00076963656424207003</k3>
-							<p1>0.0010242093792977467</p1>
-							<p2>0.0</p2>
+							<k1>-0.035761454439344531</k1>
+							<k2>0.27221522456036840e</k2>
+							<p1>-0.007235085650303857</p1>
+							<p2>-0.0029871640470490609</p2>
+							<k3>0.0</k3>
 							<center>0.5 0.5</center>
 						</distortion> -->
 
@@ -420,10 +420,12 @@
 							
 							<!-- projector brown manta v8 34.23 squares -->
 							<intrinsics>
-								<fx>1950.535121562</fx>
+								<fx>1947.535121562</fx>
 								<fy>1950.0172005493810</fy>
 								<cx>611.636478629</cx>
 								<cy>-6.52387198283725</cy>
+								<!-- <cx>618.636478629</cx>
+								<cy>-14.22387198283725</cy> -->
 								<s>0.0</s>
 							</intrinsics>
 						</lens>
@@ -443,11 +445,11 @@
 						<focalLengthX>1950.535121562</focalLengthX>
 						<focalLengthY>1950.0172005493810</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						<!-- <distortionK1>0.019567592672342945</distortionK1>
-						<distortionK2>-0.055567536323515487</distortionK2>
-						<distortionK3>0.0015400943749672583</distortionK3>
-						<distortionT1>0.0022158546005377855</distortionT1>
-						<distortionT2>0</distortionT2> -->
+						<distortionK1>-3.5761454439344531e-02</distortionK1>
+						<distortionK2>2.7221522456036840e-01</distortionK2>
+						<distortionT1>-1.7235085650303857e-03</distortionT1>
+						<distortionT2>-2.9871640470490609e-03</distortionT2>
+						<distortionK3>0</distortionK3>
 
 						<robotNamespace>/</robotNamespace>
 					</plugin>

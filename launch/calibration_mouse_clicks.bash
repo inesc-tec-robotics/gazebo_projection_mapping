@@ -2,7 +2,7 @@
 
 number_patterns=${1:-'42'}
 exposure_time_sec_pre=${2:-'0.75'}
-exposure_time_sec_pos=${2:-'0.25'}
+exposure_time_sec_pos=${3:-'0.25'}
 
 echo "Sending mouse events for ${number_patterns} patterns"
 

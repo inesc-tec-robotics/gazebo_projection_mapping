@@ -3,6 +3,7 @@
 	<arg name="attach_welds_to_beam_pose" default="true" />
 	<arg name="static_projector_pose" default="true" />
 	<arg name="static_beam_pose" default="true" />
+	<arg name="static_middle_weld" default="false" />
 
 
 
@@ -14,7 +15,7 @@
 		<!-- camera calibration ============================================================================================================================================================================================================ -->
 
 		<!-- 34.23 squares manta v9 -->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.1729 0.1568 0.9061 3.1349604 -0.3438299 -3.09900662 map_top_right_board camera_link_calib 10" 			if="$(arg static_projector_pose)" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 			args="0.1729 0.1568 0.9061 3.1349604 -0.3438299 -3.09900662 map_top_right_board camera_link_calib 10" 				if="$(arg static_projector_pose)" />
 
 		<!-- fix camera axis -->
 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera" 					args="0 0 0 1.57079632679 -1.57079632679 0 camera_link_calib camera_link 10" 										if="$(arg static_projector_pose)" />
@@ -25,7 +26,8 @@
 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 			args="0.56427273602464 -0.086243159415087 -0.42347783371373 -0.1259064961641063 -0.17833550337585907 -0.017153600492103845 0.9757303707733557 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" />
 
 		<!-- fix projector axis -->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 				args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link 10" 									if="$(arg static_projector_pose)" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_axis" 			args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link_fixed_axis 10" 						if="$(arg static_projector_pose)" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 				args="0 0 0 0.0035 -0.0033 0.0 projector_link_fixed_axis projector_link 10" 										if="$(arg static_projector_pose)" />
 	</group>
 	<!-- ============================================================================================================================================================================================================ -->
 
@@ -33,11 +35,12 @@
 
 	<!-- scene objects -->
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam_base" 			args="0 0.008 0.183 0 0 0 beam_link_base beam_link 10" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0 0 0 0 0 0 beam_link_base beam_link 10" 																		if="$(arg static_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 			args="10.001 0 0 0 0 0 beam_link beam_weld_begin_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="10.282 0 0 0 0 0 beam_link beam_weld_end_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="0.1345 0 0 0 0 0 beam_link beam_weld_middle_begin_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="0.1485 0 0 0 0 0 beam_link beam_weld_middle_end_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="0.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link 10" 							if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle_top" 	args="0 -0.008 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_top_link 10" 							if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0.168 0 0 1.57079632679 0 0 map beam_link_base 10" 																if="$(arg static_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 			args="10.0015 0 0 0 0 0 beam_link beam_weld_begin_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="10.2800 0 0 0 0 0 beam_link beam_weld_end_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle" 		args="0 0 0 0 0 0 beam_link beam_weld_middle_link 10" 																	if="$(arg static_middle_weld)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="0.1345 0 0 0 0 0 beam_weld_middle_link beam_weld_middle_begin_link 10" 											if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="0.1485 0 0 0 0 0 beam_weld_middle_link beam_weld_middle_end_link 10" 												if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="10.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link 10" 								if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle_top" 	args="10 -0.008 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_top_link 10" 								if="$(arg attach_welds_to_beam_pose)" />
 </launch>
