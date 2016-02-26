@@ -34,11 +34,11 @@
 
 
 	<!-- scene objects -->
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam_base" 			args="0 0.008 0.183 0 0 0 beam_link_base beam_link 10" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0.168 0 0 1.57079632679 0 0 map beam_link_base 10" 																if="$(arg static_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam_base" 			args="0 0.0045 0.183 0 0 0 beam_link_base beam_link 10" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0.168 0 0 1.57079632679 0 0 beam_link_projection_offset beam_link_base 10" 										if="$(arg static_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 			args="10.0015 0 0 0 0 0 beam_link beam_weld_begin_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="10.2800 0 0 0 0 0 beam_link beam_weld_end_link 10" 																if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle" 		args="0 0 0 0 0 0 beam_link beam_weld_middle_link 10" 																	if="$(arg static_middle_weld)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle" 		args="0 0 0 0 0 0 beam_link beam_weld_middle_link 10" 																	if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="0.1345 0 0 0 0 0 beam_weld_middle_link beam_weld_middle_begin_link 10" 											if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="0.1485 0 0 0 0 0 beam_weld_middle_link beam_weld_middle_end_link 10" 												if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="10.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link 10" 								if="$(arg attach_welds_to_beam_pose)" />

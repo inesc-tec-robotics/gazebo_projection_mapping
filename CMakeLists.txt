@@ -7,7 +7,7 @@ project(gazebo_projection_mapping)
 ## packages
 #######################################################################################################################
 
-set(${PROJECT_NAME}_CATKIN_COMPONENTS 
+set(${PROJECT_NAME}_CATKIN_COMPONENTS
     roscpp
     tf
     gazebo_msgs

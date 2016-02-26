@@ -22,4 +22,5 @@
 	<run_depend>rosconsole</run_depend>
 	<run_depend>roscpp</run_depend>
 	<run_depend>tf</run_depend>
+	<run_depend>socket_to_tf</run_depend>
 </package>
