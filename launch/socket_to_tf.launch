@@ -3,8 +3,8 @@
 	<node pkg="socket_to_tf" type="socket_to_tf_node" name="gpm_socket_to_tf" clear_params="true" output="screen" >
 		<param name="server_port_data" type="int" value="4668" />
 		<param name="use_static_transform_broadcaster" type="bool" value="true" />
-		<param name="default_source_frame" type="str" value="beam_link_projection_offset" />
-		<param name="default_target_frame" type="str" value="map" />
+		<param name="default_source_frame" type="str" value="beam_weld_middle_link" />
+		<param name="default_target_frame" type="str" value="beam_link" />
 		<param name="socket_message_type" type="str" value="PointTranslation" />
 		<param name="use_incremental_transform_for_point_translation" type="bool" value="false" />
 		<param name="approximate_point_translation_to_axis" type="bool" value="true" />
