@@ -238,7 +238,7 @@
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
+							<scale>1.5 1.5 1.5</scale>
 							<uri>model://beam_weld_rectangle/meshes/beam_weld_rectangle.stl</uri>
 						</mesh>
 					</geometry>
@@ -420,12 +420,12 @@
 							
 							<!-- projector brown manta v8 34.23 squares -->
 							<intrinsics>
-								<fx>1948.035121562</fx>
-								<fy>1956.5172005493810</fy>
+								<fx>1945.035121562</fx>
+								<fy>1945.5172005493810</fy>
 								<!-- <cx>611.636478629</cx>
 								<cy>-6.52387198283725</cy> -->
-								<cx>613.636478629</cx>
-								<cy>-8.22387198283725</cy>
+								<cx>613.836478629</cx>
+								<cy>-5.22387198283725</cy>
 								<s>0.0</s>
 							</intrinsics>
 						</lens>
@@ -439,11 +439,11 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<CxPrime>612.336478629</CxPrime>
-						<Cx>611.636478629</Cx>
-						<Cy>-6.52387198283725</Cy>
-						<focalLengthX>1948.035121562</focalLengthX>
-						<focalLengthY>1956.5172005493810</focalLengthY>
+						<CxPrime>613.836478629</CxPrime>
+						<Cx>613.836478629</Cx>
+						<Cy>-5.52387198283725</Cy>
+						<focalLengthX>1945.035121562</focalLengthX>
+						<focalLengthY>1945.5172005493810</focalLengthY>
 						<hackBaseline>0</hackBaseline>
 						<distortionK1>-3.5761454439344531e-02</distortionK1>
 						<distortionK2>2.7221522456036840e-01</distortionK2>
@@ -485,9 +485,9 @@
 		</scene>
 		<state world_name='default'>
 			<model name='ground_plane'>
-				<pose>0 0 0 0 -0 0</pose>
+				<pose>0 0 -0.02 0 -0 0</pose>
 				<link name='link'>
-					<pose>0 0 0 0 -0 0</pose>
+					<pose>0 0 -0.02 0 -0 0</pose>
 					<velocity>0 0 0 0 -0 0</velocity>
 					<acceleration>0 0 0 0 -0 0</acceleration>
 					<wrench>0 0 0 0 -0 0</wrench>
