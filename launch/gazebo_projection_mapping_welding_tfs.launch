@@ -38,10 +38,10 @@
 	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_beam_offset" 		args="0 0 0 0 0 0 map beam_link_offset" 																		if="$(arg static_beam_pose_offset)" />
 	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0 0 0 0 0 0 beam_link_offset beam_link_base" 																if="$(arg static_beam_pose)" />
 	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_beam_base" 			args="0 0.008 0.183 0 0 0 beam_link_base beam_link" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 		args="10.001 0 0 0 0 0 beam_link beam_weld_begin_link" 															if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="10.282 0 0 0 0 0 beam_link beam_weld_end_link" 															if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="10.1345 0 0 0 0 0 beam_link beam_weld_middle_begin_link" 													if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="10.1485 0 0 0 0 0 beam_link beam_weld_middle_end_link" 													if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 	args="10.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link" 							if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 		args="0.001 0 0 0 0 0 beam_link beam_weld_begin_link" 															if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="0.282 0 0 0 0 0 beam_link beam_weld_end_link" 															if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="0.1345 0 0 0 0 0 beam_link beam_weld_middle_begin_link" 													if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="0.1485 0 0 0 0 0 beam_link beam_weld_middle_end_link" 													if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 	args="0.145 -0.008 0 0 2.35619449019 1.57079632679 beam_link beam_weld_rectangle_link" 							if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle_top" args="0 -0.008 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_top_link" 							if="$(arg attach_welds_to_beam_pose)" />
 </launch>

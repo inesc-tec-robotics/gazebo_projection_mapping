@@ -20,6 +20,7 @@
 
 	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
 		<param name="autosize" type="bool" value="false" />
+		<param name="filename_format" type="str" value="frame%04i.png" />
 		<remap from="image" to="virtual_camera/image_rect" />
 	</node>
 
