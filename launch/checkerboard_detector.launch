@@ -3,8 +3,8 @@
  <group ns="checkerdetector" clear_params="true">
     <param name="display" type="int" value="1"/>
     <param name="maxboard" type="int" value="1"/>
-    <param name="rect0_size_x" type="double" value="0.033867"/>
-    <param name="rect0_size_y" type="double" value="0.033867"/>
+    <param name="rect0_size_x" type="double" value="0.034150"/>
+    <param name="rect0_size_y" type="double" value="0.034150"/>
     <param name="grid0_size_x" type="int" value="10"/>
     <param name="grid0_size_y" type="int" value="7"/>
     <param name="board_type" value="chess" />

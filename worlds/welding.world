@@ -94,7 +94,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -124,7 +124,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -154,7 +154,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -184,7 +184,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -214,7 +214,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -245,7 +245,7 @@
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 					<transparency>0</transparency>
@@ -266,13 +266,14 @@
 				<visual name="visual">
 					<geometry>
 						<mesh>
-							<uri>model://beam_weld_l/meshes/beam_weld_l.stl</uri>
+<!-- 							<scale>1 1 0.769230769</scale> -->
+							<uri>model://beam_weld_l/meshes/beam_weld_u.stl</uri>
 						</mesh>
 					</geometry>
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Yellow</name>
 						</script>
 					</material>
 				</visual>
@@ -286,13 +287,14 @@
 				<visual name="visual">
 					<geometry>
 						<mesh>
+<!-- 							<scale>1 1 0.769230769</scale> -->
 							<uri>model://beam_weld_u/meshes/beam_weld_u.stl</uri>
 						</mesh>
 					</geometry>
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/White</name>
+							<name>Gazebo/Yellow</name>
 						</script>
 					</material>
 				</visual>
@@ -388,7 +390,7 @@
 <!-- 					</geometry> -->
 <!-- 					<material> -->
 <!-- 						<script> -->
-<!-- 							<name>Gazebo/Yellow</name> -->
+<!-- 							<name>Gazebo/Red</name> -->
 <!-- 							<uri>file://media/materials/scripts/gazebo.material</uri> -->
 <!-- 						</script> -->
 <!-- 					</material> -->
@@ -398,19 +400,19 @@
 <!-- 		</model> -->
 
 		<model name='table'>
-			<pose>0.127 0.127 -0.015 0 0 0</pose>
+			<pose>-0.163 -0.163 -0.014 0 0 0</pose>
 			<model name='top'>
-				<pose>0 -0.247 0 0 0 0</pose>
+				<pose>0.247 0.0 0 0 0 0</pose>
 				<link name='link'>
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.494 0.001</size>
+								<size>0.494 0.003</size>
 							</plane>
 						</geometry>
 						<material>
 							<script>
-								<name>Gazebo/Red</name>
+								<name>Gazebo/Green</name>
 								<uri>file://media/materials/scripts/gazebo.material</uri>
 							</script>
 						</material>
@@ -419,17 +421,17 @@
 				</link>
 			</model>
 			<model name='bottom'>
-				<pose>0 0.247 0 0 0 0</pose>
+				<pose>0.247 0.494 0 0 0 0</pose>
 				<link name='link'>
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.494 0.001</size>
+								<size>0.494 0.003</size>
 							</plane>
 						</geometry>
 						<material>
 							<script>
-								<name>Gazebo/Red</name>
+								<name>Gazebo/Green</name>
 								<uri>file://media/materials/scripts/gazebo.material</uri>
 							</script>
 						</material>
@@ -438,17 +440,17 @@
 				</link>
 			</model>
 			<model name='left'>
-				<pose>0.247 0 0 0 0 0</pose>
+				<pose>0.0 0.247 0 0 0 0</pose>
 				<link name='link'>
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.001 0.494</size>
+								<size>0.003 0.494</size>
 							</plane>
 						</geometry>
 						<material>
 							<script>
-								<name>Gazebo/Red</name>
+								<name>Gazebo/Green</name>
 								<uri>file://media/materials/scripts/gazebo.material</uri>
 							</script>
 						</material>
@@ -457,17 +459,17 @@
 				</link>
 			</model>
 			<model name='right'>
-				<pose>-0.247 0 0 0 0 0</pose>
+				<pose>0.494 0.247 0 0 0 0</pose>
 				<link name='link'>
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.001 0.494</size>
+								<size>0.003 0.494</size>
 							</plane>
 						</geometry>
 						<material>
 							<script>
-								<name>Gazebo/Red</name>
+								<name>Gazebo/Green</name>
 								<uri>file://media/materials/scripts/gazebo.material</uri>
 							</script>
 						</material>
@@ -570,11 +572,44 @@
 <!-- 							</intrinsics> -->
 							
 							<!-- projector brown manta v8 33.867 squares | manual -->
+<!-- 							<intrinsics> -->
+<!-- 								<fx>3107.670772337</fx> -->
+<!-- 								<fy>3134.166254355</fy> -->
+<!-- 								<cx>994.38107018605183</cx> -->
+<!-- 								<cy>385.1727712</cy> -->
+<!-- 								<s>0.0</s> -->
+<!-- 							</intrinsics> -->
+
+
+<!-- 							<intrinsics> -->
+<!-- 								<fx>3117.010516738</fx> -->
+<!-- 								<fy>3131.341452705</fy> -->
+<!-- 								<cx>940.29032396302659</cx> -->
+<!-- 								<cy>443.389307812</cy> -->
+<!-- 								<s>0.0</s> -->
+<!-- 							</intrinsics> -->
+							
+<!-- 							<intrinsics> -->
+<!-- 								<fx>3214.589815297</fx> -->
+<!-- 								<fy>3257.03850439</fy> -->
+<!-- 								<cx>941.43899279039192</cx> -->
+<!-- 								<cy>499.904317907</cy> -->
+<!-- 								<s>0.0</s> -->
+<!-- 							</intrinsics> -->
+
+<!-- 							<intrinsics> -->
+<!-- 								<fx>3214.589815297</fx> -->
+<!-- 								<fy>3257.03850439</fy> -->
+<!-- 								<cx>885.43899279039192</cx> -->
+<!-- 								<cy>430.904317907</cy> -->
+<!-- 								<s>0.0</s> -->
+<!-- 							</intrinsics> -->
+
 							<intrinsics>
-								<fx>3107.670772337</fx>
-								<fy>3134.166254355</fy>
-								<cx>994.38107018605183</cx>
-								<cy>385.1727712</cy>
+								<fx>2874.589815297</fx>
+								<fy>2967.03850439</fy>
+								<cx>911.43899279039192</cx>
+								<cy>399.904317907</cy>
 								<s>0.0</s>
 							</intrinsics>
 						</lens>
@@ -589,16 +624,23 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<CxPrime>960.38107018605183</CxPrime>
-						<Cx>960.38107018605183</Cx>
-						<Cy>520.1727712</Cy>
-						<focalLengthX>3107.670772337</focalLengthX>
-						<focalLengthY>3134.166254355</focalLengthY>
+						<CxPrime>941.43899279039192</CxPrime>
+						<Cx>830.43899279039192</Cx>
+						<Cy>375.904317907</Cy>
+						<focalLengthX>3214.589815297</focalLengthX>
+						<focalLengthY>3257.03850439</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						<distortionK1>0.46679141079378489</distortionK1>
-						<distortionK2>-1.5491101793094175</distortionK2>
-						<distortionT1>-0.063183297577150840</distortionT1>
-						<distortionT2>0.043296326444564187</distortionT2>
+						
+<!-- 						<distortionK1>0.26437297034763507</distortionK1> -->
+<!-- 						<distortionK2>-1.0716486813243715</distortionK2> -->
+<!-- 						<distortionT1>-0.036310090175131253</distortionT1> -->
+<!-- 						<distortionT2>0.0088254015575517861</distortionT2> -->
+<!-- 						<distortionK3>0</distortionK3> -->
+
+						<distortionK1>0.37277216243329925</distortionK1>
+						<distortionK2>-6.0164310427033829</distortionK2>
+						<distortionT1>-0.061721097658879447</distortionT1>
+						<distortionT2>0.015253070110856767</distortionT2>
 						<distortionK3>0</distortionK3>
 
 						<robotNamespace>/</robotNamespace>
