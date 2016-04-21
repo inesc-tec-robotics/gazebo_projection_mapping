@@ -1,0 +1,141 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+      <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    </physics>
+
+    <light name='sun' type='directional'>
+      <cast_shadows>0</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>0 0 0.5 0 1.570796 1.570796</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <model name='camera'>
+        <link name='link'>
+            <pose>0 0 1.0 0 1.570796 1.570796</pose>
+            <visual name='visual'>
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.3 0.2 0.1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <name>Gazebo/Wood</name>
+                        <uri>__default__</uri>
+                    </script>
+                </material>
+            </visual>
+            <gravity>0</gravity>
+            <sensor name='camera_sensor' type='camera'>
+                <camera>
+                    <image>
+                        <width>1280</width>
+                        <height>800</height>
+                        <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                        <near>0.19</near>
+                        <far>3.2</far>
+                    </clip>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0</mean>
+                        <stddev>0</stddev>
+                    </noise>
+
+                    <!-- <distortion>
+                        <k1>-0.035761454439344531</k1>
+                        <k2>0.27221522456036840</k2>
+                        <p1>-0.0017235085650303857</p1>
+                        <p2>-0.0029871640470490609</p2>
+                        <k3>0.0</k3>
+                        <center>0.5 −0.00652984</center>
+                    </distortion> -->
+
+                    <lens>
+                        <intrinsics>
+                            <fx>1000</fx>
+                            <fy>1000</fy>
+                            <cx>640</cx>
+                            <cy>400</cy>
+                            <s>0.0</s>
+                        </intrinsics>
+                    </lens>
+                </camera>
+                <visualize>1</visualize>
+                <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>30</updateRate>
+                    <cameraName>camera_sensor</cameraName>
+                    <imageTopicName>image_raw</imageTopicName>
+                    <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                    <frameName>camera_link</frameName>
+                    <CxPrime>640</CxPrime>
+                    <Cx>620</Cx>
+                    <Cy>400</Cy>
+                    <focalLengthX>1000</focalLengthX>
+                    <focalLengthY>1000</focalLengthY>
+                    <hackBaseline>0</hackBaseline>
+                    <distortionK1>0</distortionK1>
+                    <distortionK2>0</distortionK2>
+                    <distortionT1>0</distortionT1>
+                    <distortionT2>0</distortionT2>
+                    <distortionK3>0</distortionK3>
+                    <robotNamespace>/</robotNamespace>
+                </plugin>
+            </sensor>
+        </link>
+        <static>1</static>
+    </model>
+
+    <model name="calibration_pattern">
+        <static>true</static>
+        <link name="calibration_pattern_link">
+            <pose>0.153675 0.10245 0 0 0 0</pose>
+            <visual name="visual">
+                <cast_shadows>false</cast_shadows>
+                <geometry>
+                    <box>
+                        <size>0.37565 0.2732 0.001</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>model://calibration_pattern/materials/scripts</uri>
+                        <uri>model://calibration_pattern/materials/textures</uri>
+                        <name>calibration_pattern</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+  </world>
+</sdf>

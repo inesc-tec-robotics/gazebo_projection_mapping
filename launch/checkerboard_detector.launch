@@ -1,0 +1,19 @@
+<launch>
+
+ <group ns="checkerdetector" clear_params="true">
+    <param name="display" type="int" value="1"/>
+    <param name="maxboard" type="int" value="1"/>
+    <param name="rect0_size_x" type="double" value="0.033867"/>
+    <param name="rect0_size_y" type="double" value="0.033867"/>
+    <param name="grid0_size_x" type="int" value="10"/>
+    <param name="grid0_size_y" type="int" value="7"/>
+    <param name="board_type" value="chess" />
+     <param name="type0" type="string" value="10x7chessboard"/>
+
+    <node pkg="checkerboard_detector" name="checkerboard_detector" type="checkerboard_detector" respawn="false" output="screen">
+      <remap from="camera_info" to="/camera/camera_info"/>
+      <remap from="image" to="/camera/image_rect"/>
+    </node>
+  </group>
+
+</launch>

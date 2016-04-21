@@ -208,7 +208,7 @@
 					<geometry>
 						<mesh>
 							<scale>1 1 1</scale>
-							<uri>model://beam_weld_rectangle/meshes/beam_weld_rectangle.stl</uri>
+							<uri>model://beam_weld_u_outline/meshes/beam_weld_u_outline.stl</uri>
 						</mesh>
 					</geometry>
 					<material>
@@ -238,7 +238,7 @@
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1.5 1.5 1.5</scale>
+							<scale>1 1 1</scale>
 							<uri>model://beam_weld_rectangle/meshes/beam_weld_rectangle.stl</uri>
 						</mesh>
 					</geometry>
@@ -256,6 +256,46 @@
 				</velocity_decay>
 				<self_collide>0</self_collide>
 				<kinematic>0</kinematic>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		
+		<model name="beam_weld_l">
+			<static>true</static>
+			<link name='beam_weld_l_link'>
+				<visual name="visual">
+					<geometry>
+						<mesh>
+							<uri>model://beam_weld_l/meshes/beam_weld_l.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/White</name>
+						</script>
+					</material>
+				</visual>
+				<gravity>0</gravity>
+			</link>
+		</model>
+		
+		<model name="beam_weld_u">
+			<static>true</static>
+			<link name='beam_weld_u_link'>
+				<visual name="visual">
+					<geometry>
+						<mesh>
+							<uri>model://beam_weld_u/meshes/beam_weld_u.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/White</name>
+						</script>
+					</material>
+				</visual>
 				<gravity>0</gravity>
 			</link>
 		</model>
@@ -336,6 +376,108 @@
 			</link>
 		</model>
 
+
+<!-- 		<model name='table_plane'> -->
+<!-- 			<pose>0.127 0.127 -0.015 0 0 0</pose> -->
+<!-- 			<link name='link'> -->
+<!-- 				<visual name='visual'> -->
+<!-- 					<geometry> -->
+<!-- 						<plane> -->
+<!-- 							<size>0.494 0.494</size> -->
+<!-- 						</plane> -->
+<!-- 					</geometry> -->
+<!-- 					<material> -->
+<!-- 						<script> -->
+<!-- 							<name>Gazebo/Yellow</name> -->
+<!-- 							<uri>file://media/materials/scripts/gazebo.material</uri> -->
+<!-- 						</script> -->
+<!-- 					</material> -->
+<!-- 				</visual> -->
+<!-- 				<gravity>0</gravity> -->
+<!-- 			</link> -->
+<!-- 		</model> -->
+
+		<model name='table'>
+			<pose>0.127 0.127 -0.015 0 0 0</pose>
+			<model name='top'>
+				<pose>0 -0.247 0 0 0 0</pose>
+				<link name='link'>
+					<visual name='visual'>
+						<geometry>
+							<plane>
+								<size>0.494 0.001</size>
+							</plane>
+						</geometry>
+						<material>
+							<script>
+								<name>Gazebo/Red</name>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+							</script>
+						</material>
+					</visual>
+					<gravity>0</gravity>
+				</link>
+			</model>
+			<model name='bottom'>
+				<pose>0 0.247 0 0 0 0</pose>
+				<link name='link'>
+					<visual name='visual'>
+						<geometry>
+							<plane>
+								<size>0.494 0.001</size>
+							</plane>
+						</geometry>
+						<material>
+							<script>
+								<name>Gazebo/Red</name>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+							</script>
+						</material>
+					</visual>
+					<gravity>0</gravity>
+				</link>
+			</model>
+			<model name='left'>
+				<pose>0.247 0 0 0 0 0</pose>
+				<link name='link'>
+					<visual name='visual'>
+						<geometry>
+							<plane>
+								<size>0.001 0.494</size>
+							</plane>
+						</geometry>
+						<material>
+							<script>
+								<name>Gazebo/Red</name>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+							</script>
+						</material>
+					</visual>
+					<gravity>0</gravity>
+				</link>
+			</model>
+			<model name='right'>
+				<pose>-0.247 0 0 0 0 0</pose>
+				<link name='link'>
+					<visual name='visual'>
+						<geometry>
+							<plane>
+								<size>0.001 0.494</size>
+							</plane>
+						</geometry>
+						<material>
+							<script>
+								<name>Gazebo/Red</name>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+							</script>
+						</material>
+					</visual>
+					<gravity>0</gravity>
+				</link>
+			</model>
+		</model>
+
+
 		<model name='camera_projection_mapping'>
 			<link name='projector_link'>
 				<pose>0 0 0 0 0 0</pose>
@@ -378,13 +520,13 @@
 						<horizontal_fov>1.15</horizontal_fov>
 						<!--<horizontal_fov>0.6</horizontal_fov>-->
 						<image>
-							<width>1280</width>
-							<height>800</height>
+							<width>1920</width>
+							<height>1080</height>
 							<format>R8G8B8</format>
 						</image>
 						<clip>
-							<near>0.19</near>
-							<far>3.2</far>
+							<near>0.1</near>
+							<far>10.0</far>
 						</clip>
 						<noise>
 							<type>gaussian</type>
@@ -418,19 +560,27 @@
 								<fun>tan</fun>	one of sin,tan,id
 							</custom_function> -->
 							
-							<!-- projector brown manta v8 34.23 squares -->
+							<!-- projector brown manta v8 33.867 squares -->
+<!-- 							<intrinsics> -->
+<!-- 								<fx>3107.670772337</fx> -->
+<!-- 								<fy>3134.166254355</fy> -->
+<!-- 								<cx>960.38107018605183</cx> -->
+<!-- 								<cy>520.1727712</cy> -->
+<!-- 								<s>0.0</s> -->
+<!-- 							</intrinsics> -->
+							
+							<!-- projector brown manta v8 33.867 squares | manual -->
 							<intrinsics>
-								<fx>1945.035121562</fx>
-								<fy>1945.5172005493810</fy>
-								<!-- <cx>611.636478629</cx>
-								<cy>-6.52387198283725</cy> -->
-								<cx>613.836478629</cx>
-								<cy>-5.22387198283725</cy>
+								<fx>3107.670772337</fx>
+								<fy>3134.166254355</fy>
+								<cx>994.38107018605183</cx>
+								<cy>385.1727712</cy>
 								<s>0.0</s>
 							</intrinsics>
 						</lens>
 					</camera>
-					<visualize>1</visualize>
+					<visualize>0</visualize>
+					<!-- <plugin name='image_outline_plugin' filename='libimage_outline_plugin.so' /> -->
 					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
 						<alwaysOn>true</alwaysOn>
 						<updateRate>30</updateRate>
@@ -439,16 +589,16 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<CxPrime>613.836478629</CxPrime>
-						<Cx>613.836478629</Cx>
-						<Cy>-5.52387198283725</Cy>
-						<focalLengthX>1945.035121562</focalLengthX>
-						<focalLengthY>1945.5172005493810</focalLengthY>
+						<CxPrime>960.38107018605183</CxPrime>
+						<Cx>960.38107018605183</Cx>
+						<Cy>520.1727712</Cy>
+						<focalLengthX>3107.670772337</focalLengthX>
+						<focalLengthY>3134.166254355</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						<distortionK1>-3.5761454439344531e-02</distortionK1>
-						<distortionK2>2.7221522456036840e-01</distortionK2>
-						<distortionT1>-1.7235085650303857e-03</distortionT1>
-						<distortionT2>-2.9871640470490609e-03</distortionT2>
+						<distortionK1>0.46679141079378489</distortionK1>
+						<distortionK2>-1.5491101793094175</distortionK2>
+						<distortionT1>-0.063183297577150840</distortionT1>
+						<distortionT2>0.043296326444564187</distortionT2>
 						<distortionK3>0</distortionK3>
 
 						<robotNamespace>/</robotNamespace>
@@ -588,5 +738,18 @@
 				<view_controller>orbit</view_controller>
 			</camera>
 		</gui>
+<!-- 		<light name='user_point_light_0' type='point'> -->
+<!-- 			<pose>0 0 1 0 -0 0</pose> -->
+<!-- 			<diffuse>0.5 0.5 0.5 1</diffuse> -->
+<!-- 			<specular>0.1 0.1 0.1 1</specular> -->
+<!-- 			<attenuation> -->
+<!-- 				<range>20</range> -->
+<!-- 				<constant>0.5</constant> -->
+<!-- 				<linear>0.01</linear> -->
+<!-- 				<quadratic>0.001</quadratic> -->
+<!-- 			</attenuation> -->
+<!-- 			<cast_shadows>0</cast_shadows> -->
+<!-- 			<direction>0 0 -1</direction> -->
+<!-- 		</light> -->
 	</world>
 </sdf>
