@@ -111,6 +111,7 @@
 				<visual name='visual'>
 					<geometry>
 						<mesh>
+							<scale>2 1 1</scale>
 							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
 						</mesh>
 					</geometry>
@@ -272,7 +273,7 @@
 
 		<model name='table_plane'>
 			<static>1</static>
-			<pose>0.084 0.084 -0.015 0 0 0</pose>
+			<pose>10.084 0.084 -0.015 0 0 0</pose>
 			<link name='link'>
 				<visual name='visual'>
 					<geometry>
@@ -293,7 +294,7 @@
 
 		<model name='table'>
 			<static>1</static>
-			<pose>-0.163 -0.163 -0.015 0 0 0</pose>
+			<pose>-10.163 -0.163 -0.015 0 0 0</pose>
 			<model name='top'>
 				<pose>0.247 0.0 0 0 0 0</pose>
 				<link name='link'>
