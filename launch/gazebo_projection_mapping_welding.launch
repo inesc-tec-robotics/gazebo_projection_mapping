@@ -51,14 +51,19 @@
 		<param name="tf_source_frame" type="str" value="beam_weld_rectangle_top_link" />
 	</node>
 	
-	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_l">
-		<param name="gazebo_link_name" type="str" value="beam_weld_l_link" />
-		<param name="tf_source_frame" type="str" value="beam_weld_l_link" />
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_u_side">
+		<param name="gazebo_link_name" type="str" value="beam_weld_u_side_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_u_side_link" />
 	</node>
 	
-	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_u">
-		<param name="gazebo_link_name" type="str" value="beam_weld_u_link" />
-		<param name="tf_source_frame" type="str" value="beam_weld_u_link" />
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_u_top">
+		<param name="gazebo_link_name" type="str" value="beam_weld_u_top_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_u_top_link" />
+	</node>
+	
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_beam_weld_u_bottom">
+		<param name="gazebo_link_name" type="str" value="beam_weld_u_bottom_link" />
+		<param name="tf_source_frame" type="str" value="beam_weld_u_bottom_link" />
 	</node>
 	
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_calibration_pattern">

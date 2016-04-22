@@ -1,7 +1,9 @@
 <sdf version='1.6'>
 	<world name='default'>
+
 		<model name='ground_plane'>
 			<static>1</static>
+			<pose>0 0 -0.02 0 -0 0</pose>
 			<link name='link'>
 				<collision name='collision'>
 					<geometry>
@@ -39,25 +41,16 @@
 						</script>
 					</material>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam'>
 			<static>1</static>
 			<link name='beam_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam/meshes/beam.stl</uri>
 						</mesh>
 					</geometry>
@@ -67,27 +60,17 @@
 							<name>Gazebo/Black</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam_weld_begin'>
 			<static>1</static>
 			<link name='beam_weld_begin_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
 						</mesh>
 					</geometry>
@@ -97,27 +80,17 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam_weld_end'>
 			<static>1</static>
 			<link name='beam_weld_end_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
 						</mesh>
 					</geometry>
@@ -127,27 +100,17 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam_weld_middle_begin'>
 			<static>1</static>
 			<link name='beam_weld_middle_begin_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
 						</mesh>
 					</geometry>
@@ -157,27 +120,17 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam_weld_middle_end'>
 			<static>1</static>
 			<link name='beam_weld_middle_end_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld/meshes/beam_weld.stl</uri>
 						</mesh>
 					</geometry>
@@ -187,27 +140,17 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
+
 		<model name='beam_weld_rectangle'>
 			<static>1</static>
 			<link name='beam_weld_rectangle_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld_u_outline/meshes/beam_weld_u_outline.stl</uri>
 						</mesh>
 					</geometry>
@@ -217,28 +160,17 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
-		
+
 		<model name='beam_weld_rectangle_top'>
 			<static>1</static>
 			<link name='beam_weld_rectangle_top_link'>
-				<inertial>
-					<mass>1000</mass>
-				</inertial>
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-							<scale>1 1 1</scale>
 							<uri>model://beam_weld_rectangle/meshes/beam_weld_rectangle.stl</uri>
 						</mesh>
 					</geometry>
@@ -248,46 +180,37 @@
 							<name>Gazebo/Red</name>
 						</script>
 					</material>
-					<transparency>0</transparency>
 				</visual>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
-				<self_collide>0</self_collide>
-				<kinematic>0</kinematic>
 				<gravity>0</gravity>
 			</link>
 		</model>
-		
-		<model name="beam_weld_l">
-			<static>true</static>
-			<link name='beam_weld_l_link'>
+
+		<model name="beam_weld_u_side">
+			<static>1</static>
+			<link name='beam_weld_u_side_link'>
 				<visual name="visual">
 					<geometry>
 						<mesh>
-<!-- 							<scale>1 1 0.769230769</scale> -->
-							<uri>model://beam_weld_l/meshes/beam_weld_u.stl</uri>
+							<uri>model://beam_weld_u_side/meshes/beam_weld_u_side.stl</uri>
 						</mesh>
 					</geometry>
 					<material>
 						<script>
 							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/Yellow</name>
+							<name>Gazebo/Red</name>
 						</script>
 					</material>
 				</visual>
 				<gravity>0</gravity>
 			</link>
 		</model>
-		
-		<model name="beam_weld_u">
-			<static>true</static>
-			<link name='beam_weld_u_link'>
+
+		<model name="beam_weld_u_top">
+			<static>1</static>
+			<link name='beam_weld_u_top_link'>
 				<visual name="visual">
 					<geometry>
 						<mesh>
-<!-- 							<scale>1 1 0.769230769</scale> -->
 							<uri>model://beam_weld_u/meshes/beam_weld_u.stl</uri>
 						</mesh>
 					</geometry>
@@ -301,65 +224,32 @@
 				<gravity>0</gravity>
 			</link>
 		</model>
-		
-		<!--<model name="distorted_projector">-->
-			<!--<link name="projector_link_2">-->
-				<!--<pose>0 0 0 0 0 0</pose>-->
-				<!--<inertial>-->
-					<!--<mass>0.1</mass>-->
-				<!--</inertial>-->
-				<!--<collision name="collision">-->
-					<!--<geometry>-->
-						<!--<box>-->
-							<!--<size>0.1 0.1 0.1</size>-->
-						<!--</box>-->
-					<!--</geometry>-->
-				<!--</collision>-->
-				<!--<visual name="visual">-->
-					<!--<geometry>-->
-						<!--<box>-->
-							<!--<size>0.1 0.1 0.1</size>-->
-						<!--</box>-->
-					<!--</geometry>-->
-				<!--</visual>-->
-				<!--<sensor name="camera" type="camera">-->
-					<!--<camera>-->
-						<!--&lt;!&ndash; <horizontal_fov>1.151930221</horizontal_fov> &ndash;&gt;-->
-						<!--<horizontal_fov>1.81982</horizontal_fov>-->
-						<!--<image>-->
-							<!--<width>1280</width>-->
-							<!--<height>800</height>-->
-							<!--<format>R8G8B8</format>-->
-						<!--</image>-->
-						<!--<clip>-->
-							<!--<near>0.19</near>-->
-							<!--<far>3.2</far>-->
-						<!--</clip>-->
-						<!--<save enabled="1">-->
-							<!--<path>/home/carloscosta/catkin_ws/src/gazebo_projection_mapping/frames/</path>-->
-						<!--</save>-->
-						<!--<distortion>-->
-							<!--<k1>-0.0216245</k1>-->
-							<!--<k2>0.00355186</k2>-->
-							<!--<k3>-0.433392</k3>-->
-							<!--<p1>-0.00480772</p1>-->
-							<!--<p2>0.000386425</p2>-->
-							<!--<center>0.976991 0.490102</center>-->
-							<!--&lt;!&ndash; <center>0.509898 0.023009</center> &ndash;&gt;-->
-						<!--</distortion>-->
-					<!--</camera>-->
-					<!--<always_on>1</always_on>-->
-					<!--<update_rate>0.05</update_rate>-->
-					<!--<visualize>true</visualize>-->
-				<!--</sensor>-->
-			<!--</link>-->
-			<!--<static>1</static>-->
-		<!--</model>-->
+
+		<model name="beam_weld_u_bottom">
+			<static>1</static>
+			<link name='beam_weld_u_bottom_link'>
+				<visual name="visual">
+					<geometry>
+						<mesh>
+							<uri>model://beam_weld_u/meshes/beam_weld_u.stl</uri>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+							<name>Gazebo/Yellow</name>
+						</script>
+					</material>
+				</visual>
+				<gravity>0</gravity>
+			</link>
+		</model>
+
 
 		<model name="calibration_pattern">
-			<static>true</static>
+			<static>1</static>
+			<pose>0.153675 0.10245 -0.015 0 0 0</pose>
 			<link name="calibration_pattern_link">
-				<pose>0.153675 0.10245 0 0 0 0</pose>
 				<visual name="visual">
 					<cast_shadows>false</cast_shadows>
 					<geometry>
@@ -375,39 +265,42 @@
 						</script>
 					</material>
 				</visual>
+				<gravity>0</gravity>
 			</link>
 		</model>
 
 
-<!-- 		<model name='table_plane'> -->
-<!-- 			<pose>0.127 0.127 -0.015 0 0 0</pose> -->
-<!-- 			<link name='link'> -->
-<!-- 				<visual name='visual'> -->
-<!-- 					<geometry> -->
-<!-- 						<plane> -->
-<!-- 							<size>0.494 0.494</size> -->
-<!-- 						</plane> -->
-<!-- 					</geometry> -->
-<!-- 					<material> -->
-<!-- 						<script> -->
-<!-- 							<name>Gazebo/Red</name> -->
-<!-- 							<uri>file://media/materials/scripts/gazebo.material</uri> -->
-<!-- 						</script> -->
-<!-- 					</material> -->
-<!-- 				</visual> -->
-<!-- 				<gravity>0</gravity> -->
-<!-- 			</link> -->
-<!-- 		</model> -->
+		<model name='table_plane'>
+			<static>1</static>
+			<pose>0.084 0.084 -0.015 0 0 0</pose>
+			<link name='link'>
+				<visual name='visual'>
+					<geometry>
+						<plane>
+							<size>0.494 0.494</size>
+						</plane>
+					</geometry>
+					<material>
+						<script>
+							<name>Gazebo/Grey</name>
+							<uri>file://media/materials/scripts/gazebo.material</uri>
+						</script>
+					</material>
+				</visual>
+				<gravity>0</gravity>
+			</link>
+		</model>
 
 		<model name='table'>
-			<pose>-0.163 -0.163 -0.014 0 0 0</pose>
+			<static>1</static>
+			<pose>-0.163 -0.163 -0.015 0 0 0</pose>
 			<model name='top'>
 				<pose>0.247 0.0 0 0 0 0</pose>
 				<link name='link'>
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.494 0.003</size>
+								<size>0.494 0.002</size>
 							</plane>
 						</geometry>
 						<material>
@@ -426,7 +319,7 @@
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.494 0.003</size>
+								<size>0.494 0.002</size>
 							</plane>
 						</geometry>
 						<material>
@@ -445,7 +338,7 @@
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.003 0.494</size>
+								<size>0.002 0.494</size>
 							</plane>
 						</geometry>
 						<material>
@@ -464,7 +357,7 @@
 					<visual name='visual'>
 						<geometry>
 							<plane>
-								<size>0.003 0.494</size>
+								<size>0.002 0.494</size>
 							</plane>
 						</geometry>
 						<material>
@@ -481,22 +374,9 @@
 
 
 		<model name='camera_projection_mapping'>
+			<static>1</static>
 			<link name='projector_link'>
-				<pose>0 0 0 0 0 0</pose>
-				<inertial>
-					<pose>0 0 0 0 0 0</pose>
-					<mass>1</mass>
-					<inertia>
-						<ixx>0.1</ixx>
-						<ixy>0</ixy>
-						<ixz>0</ixz>
-						<iyy>0.1</iyy>
-						<iyz>0</iyz>
-						<izz>0.1</izz>
-					</inertia>
-				</inertial>
 				<visual name='projector_link_visual'>
-					<pose>0 0 0 0 -0 0</pose>
 					<geometry>
 						<box>
 							<size>0.3 0.2 0.1</size>
@@ -509,18 +389,11 @@
 						</script>
 					</material>
 				</visual>
-				<gravity>1</gravity>
-				<velocity_decay>
-					<linear>0</linear>
-					<angular>0</angular>
-				</velocity_decay>
+				<gravity>0</gravity>
 				<self_collide>0</self_collide>
-				<sensor name='virtual_camera' type='camera'>				<!-- camera | wideanglecamera -->
+				<sensor name='virtual_camera' type='camera'>
 					<camera name='projector_head'>
-						<!--<projection_type>perspective</projection_type>-->
-						<!--<horizontal_fov>1.81982</horizontal_fov>-->
 						<horizontal_fov>1.15</horizontal_fov>
-						<!--<horizontal_fov>0.6</horizontal_fov>-->
 						<image>
 							<width>1920</width>
 							<height>1080</height>
@@ -561,49 +434,6 @@
 								<f>1.0</f>		Focal length of the optical system. Note: It's not a focal length of the lens in a common sense! This value is ignored if 'scale_to_fov' is set to true
 								<fun>tan</fun>	one of sin,tan,id
 							</custom_function> -->
-							
-							<!-- projector brown manta v8 33.867 squares -->
-<!-- 							<intrinsics> -->
-<!-- 								<fx>3107.670772337</fx> -->
-<!-- 								<fy>3134.166254355</fy> -->
-<!-- 								<cx>960.38107018605183</cx> -->
-<!-- 								<cy>520.1727712</cy> -->
-<!-- 								<s>0.0</s> -->
-<!-- 							</intrinsics> -->
-							
-							<!-- projector brown manta v8 33.867 squares | manual -->
-<!-- 							<intrinsics> -->
-<!-- 								<fx>3107.670772337</fx> -->
-<!-- 								<fy>3134.166254355</fy> -->
-<!-- 								<cx>994.38107018605183</cx> -->
-<!-- 								<cy>385.1727712</cy> -->
-<!-- 								<s>0.0</s> -->
-<!-- 							</intrinsics> -->
-
-
-<!-- 							<intrinsics> -->
-<!-- 								<fx>3117.010516738</fx> -->
-<!-- 								<fy>3131.341452705</fy> -->
-<!-- 								<cx>940.29032396302659</cx> -->
-<!-- 								<cy>443.389307812</cy> -->
-<!-- 								<s>0.0</s> -->
-<!-- 							</intrinsics> -->
-							
-<!-- 							<intrinsics> -->
-<!-- 								<fx>3214.589815297</fx> -->
-<!-- 								<fy>3257.03850439</fy> -->
-<!-- 								<cx>941.43899279039192</cx> -->
-<!-- 								<cy>499.904317907</cy> -->
-<!-- 								<s>0.0</s> -->
-<!-- 							</intrinsics> -->
-
-<!-- 							<intrinsics> -->
-<!-- 								<fx>3214.589815297</fx> -->
-<!-- 								<fy>3257.03850439</fy> -->
-<!-- 								<cx>885.43899279039192</cx> -->
-<!-- 								<cy>430.904317907</cy> -->
-<!-- 								<s>0.0</s> -->
-<!-- 							</intrinsics> -->
 
 							<intrinsics>
 								<fx>2874.589815297</fx>
@@ -624,18 +454,12 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<CxPrime>941.43899279039192</CxPrime>
-						<Cx>830.43899279039192</Cx>
-						<Cy>375.904317907</Cy>
-						<focalLengthX>3214.589815297</focalLengthX>
-						<focalLengthY>3257.03850439</focalLengthY>
+						<CxPrime>911.43899279039192</CxPrime>
+						<Cx>911.43899279039192</Cx>
+						<Cy>399.904317907</Cy>
+						<focalLengthX>2874.589815297</focalLengthX>
+						<focalLengthY>2967.03850439</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						
-<!-- 						<distortionK1>0.26437297034763507</distortionK1> -->
-<!-- 						<distortionK2>-1.0716486813243715</distortionK2> -->
-<!-- 						<distortionT1>-0.036310090175131253</distortionT1> -->
-<!-- 						<distortionT2>0.0088254015575517861</distortionT2> -->
-<!-- 						<distortionK3>0</distortionK3> -->
 
 						<distortionK1>0.37277216243329925</distortionK1>
 						<distortionK2>-6.0164310427033829</distortionK2>
@@ -646,23 +470,17 @@
 						<robotNamespace>/</robotNamespace>
 					</plugin>
 				</sensor>
-				<kinematic>0</kinematic>
 			</link>
 			<static>1</static>
 		</model>
 
-		<!-- <include>
-			<static>true</static>
-			<uri>model://calibration_pattern</uri>
-			<pose>-0.041574 0.048175 1.28022 0 -0 0</pose>
-		</include> -->
-		
+
 		<physics type='ode'>
 			<max_step_size>0.1</max_step_size>
 			<real_time_factor>1</real_time_factor>
 			<real_time_update_rate>10</real_time_update_rate>
 			<max_contacts>3</max_contacts>
-			<gravity>0 0 -9.8</gravity>
+			<gravity>0 0 0</gravity>
 			<ode>
 				<solver>
 					<min_step_size>0.1</min_step_size>
@@ -670,128 +488,19 @@
 				</solver>
 			</ode>
 		</physics>
+
 		<scene>
 			<ambient>1 1 1 1</ambient>
 			<background>0 0 0 1</background>
 			<shadows>1</shadows>
 		</scene>
-		<state world_name='default'>
-			<model name='ground_plane'>
-				<pose>0 0 -0.02 0 -0 0</pose>
-				<link name='link'>
-					<pose>0 0 -0.02 0 -0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='camera_projection_mapping'>
-				<pose>0.598 -0.125 1.473 -3.139 1.455 1.619</pose>
-				<link name='projector_link'>
-					<pose>0.598 -0.125 1.473 -3.139 1.455 1.619</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam'>
-				<pose>0 -0.008 0.183 0 0 0</pose>
-				<link name='beam_link'>
-					<pose>0 -0.008 0.183 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_begin'>
-				<pose>0 -0.008 0.183 0 0 0</pose>
-				<link name='beam_weld_begin_link'>
-					<pose>0 -0.008 0.183 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_end'>
-				<pose>0.283 -0.008 0.183 0 0 0</pose>
-				<link name='beam_weld_end_link'>
-					<pose>0.283 -0.008 0.183 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_middle_begin'>
-				<pose>0.1345 -0.008 0.183 0 0 0</pose>
-				<link name='beam_weld_middle_begin_link'>
-					<pose>0.1345 -0.008 0.183 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_middle_end'>
-				<pose>0.1485 -0.008 0.183 0 0 0</pose>
-				<link name='beam_weld_middle_end_link'>
-					<pose>0.1485 -0.008 0.183 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_rectangle'>
-				<pose>0.145 -0.016 0.183 2.35619449019 1.57079632679 0</pose>
-				<link name='beam_weld_rectangle_link'>
-					<pose>0.145 -0.016 0.183 1.57079632679 2.35619449019 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='beam_weld_rectangle_top'>
-				<pose>0 -0.016 0.183 1.57079632679 1.57079632679 0</pose>
-				<link name='beam_weld_rectangle_top_link'>
-					<pose>0 -0.016 0.183 1.57079632679 1.57079632679 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-			<model name='calibration_pattern'>
-				<pose>10.153675 0.10245 0 0 0 0</pose>
-				<link name='calibration_pattern_link'>
-					<pose>10.153675 0.10245 0 0 0 0</pose>
-					<velocity>0 0 0 0 -0 0</velocity>
-					<acceleration>0 0 0 0 -0 0</acceleration>
-					<wrench>0 0 0 0 -0 0</wrench>
-				</link>
-			</model>
-		</state>
-		<spherical_coordinates>
-			<surface_model>EARTH_WGS84</surface_model>
-			<latitude_deg>0</latitude_deg>
-			<longitude_deg>0</longitude_deg>
-			<elevation>0</elevation>
-			<heading_deg>0</heading_deg>
-		</spherical_coordinates>
+
+
 		<gui fullscreen='0'>
 			<camera name='user_camera'>
 				<pose>-0.186441 -0.351267 0.80691 0 0.898792 0.76959</pose>
 				<view_controller>orbit</view_controller>
 			</camera>
 		</gui>
-<!-- 		<light name='user_point_light_0' type='point'> -->
-<!-- 			<pose>0 0 1 0 -0 0</pose> -->
-<!-- 			<diffuse>0.5 0.5 0.5 1</diffuse> -->
-<!-- 			<specular>0.1 0.1 0.1 1</specular> -->
-<!-- 			<attenuation> -->
-<!-- 				<range>20</range> -->
-<!-- 				<constant>0.5</constant> -->
-<!-- 				<linear>0.01</linear> -->
-<!-- 				<quadratic>0.001</quadratic> -->
-<!-- 			</attenuation> -->
-<!-- 			<cast_shadows>0</cast_shadows> -->
-<!-- 			<direction>0 0 -1</direction> -->
-<!-- 		</light> -->
 	</world>
 </sdf>

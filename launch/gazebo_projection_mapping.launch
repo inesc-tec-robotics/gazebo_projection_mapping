@@ -21,14 +21,12 @@
 	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
 		<param name="autosize" type="bool" value="false" />
 		<param name="filename_format" type="str" value="frame%04i.png" />
-		<remap from="image" to="virtual_camera/image_rect" />
+		<remap from="image" to="virtual_camera/image_rect_color" />
 	</node>
+	<node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" args="image_view /virtual_camera/image_rect_color" if="$(arg show_image)" output="screen" />
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">
 		<param name="gazebo_link_name" type="str" value="projector_link" />
 		<param name="tf_source_frame" type="str" value="projector_link" />
 	</node>
-
-	<!-- <node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" output="screen" /> -->
-	<!-- <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" args="1.03689 1.58905 0.531 -2.02056 0.07 -1.59 map projector_link 10" /> -->
 </launch>
