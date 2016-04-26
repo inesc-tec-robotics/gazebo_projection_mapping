@@ -12,7 +12,7 @@
 
     <node pkg="checkerboard_detector" name="checkerboard_detector" type="checkerboard_detector" respawn="false" output="screen">
       <remap from="camera_info" to="/camera/camera_info"/>
-      <remap from="image" to="/camera/image_rect"/>
+      <remap from="image" to="/camera/image_rect_color"/>
     </node>
   </group>
 

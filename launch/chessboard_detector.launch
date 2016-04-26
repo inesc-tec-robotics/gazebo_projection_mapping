@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <group ns="camera">
+    <node pkg="chessboard_pose" type="chessboard_pose" respawn="false" output="screen" name="chessboard_detector">
+      <remap from="image_mono" to="image_rect" />
+      <param name="display" value="1"/>
+      <param name="frame_id" value=" left_optical"/>
+      <param name="rect_x_size" value="0.03415"/>
+      <param name="rect_y_size" value="0.03415"/>
+      <param name="grid_x_size" value="10"/>
+      <param name="grid_y_size" value="7"/>
+      <param name="publish_tf" value="true"/>
+    </node>
+  </group>
+
+
+<node pkg="chessboard_publisher" type="publisher" name="chessboard_4_3" output="screen">
+  <param name="name" value="chessboard" />
+  <param name="grid_x_size" value="10" />
+  <param name="grid_y_size" value="7" />
+  <param name="rect_x_size" value="0.03415" />
+  <param name="rect_y_size" value="0.03415" />
+</node>
+
+</launch>

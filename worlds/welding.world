@@ -437,10 +437,10 @@
 							</custom_function> -->
 
 							<intrinsics>
-								<fx>2874.589815297</fx>
-								<fy>2967.03850439</fy>
-								<cx>911.43899279039192</cx>
-								<cy>399.904317907</cy>
+								<fx>2905.251583</fx>
+								<fy>2916.04609</fy>
+								<cx>867.37922195319618</cx>
+								<cy>-79.749876934</cy>
 								<s>0.0</s>
 							</intrinsics>
 						</lens>
@@ -455,17 +455,17 @@
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 						<frameName>camera_link</frameName>
 
-						<CxPrime>911.43899279039192</CxPrime>
-						<Cx>911.43899279039192</Cx>
-						<Cy>399.904317907</Cy>
-						<focalLengthX>2874.589815297</focalLengthX>
-						<focalLengthY>2967.03850439</focalLengthY>
+						<focalLengthX>2905.251583</focalLengthX>
+						<focalLengthY>2916.04609</focalLengthY>
 						<hackBaseline>0</hackBaseline>
+						<CxPrime>869.37922195319618</CxPrime>
+						<Cx>867.37922195319618</Cx>
+						<Cy>-79.749876934</Cy>
 
-						<distortionK1>0.37277216243329925</distortionK1>
-						<distortionK2>-6.0164310427033829</distortionK2>
-						<distortionT1>-0.061721097658879447</distortionT1>
-						<distortionT2>0.015253070110856767</distortionT2>
+						<distortionK1>-0.048368414149323344</distortionK1>
+						<distortionK2>0.26114835052303170</distortionK2>
+						<distortionT1>-0.0054634479663059369</distortionT1>
+						<distortionT2>-0.0019473505228512493</distortionT2>
 						<distortionK3>0</distortionK3>
 
 						<robotNamespace>/</robotNamespace>
