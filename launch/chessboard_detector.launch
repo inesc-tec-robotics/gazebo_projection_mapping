@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-  <group ns="camera">
+  <arg name="detect_chessboard" default="true" />
+
+  <group ns="camera" if="$(arg detect_chessboard)">
     <node pkg="chessboard_pose" type="chessboard_pose" respawn="false" output="screen" name="chessboard_detector">
       <remap from="image_mono" to="image_rect" />
       <param name="display" value="1"/>
+      <param name="verbose" value="1"/>
+      <param name="publish_tf" type="bool" value="false"/>
+      <param name="publish_tf_static" type="bool" value="true"/>
       <param name="frame_id" value=" left_optical"/>
-      <param name="rect_x_size" value="0.03415"/>
-      <param name="rect_y_size" value="0.03415"/>
       <param name="grid_x_size" value="10"/>
       <param name="grid_y_size" value="7"/>
-      <param name="publish_tf" value="true"/>
+      <param name="rect_x_size" value="0.03415"/>
+      <param name="rect_y_size" value="0.03415"/>
     </node>
   </group>
 
 
-<node pkg="chessboard_publisher" type="publisher" name="chessboard_4_3" output="screen">
-  <param name="name" value="chessboard" />
-  <param name="grid_x_size" value="10" />
-  <param name="grid_y_size" value="7" />
-  <param name="rect_x_size" value="0.03415" />
-  <param name="rect_y_size" value="0.03415" />
-</node>
+  <node pkg="chessboard_publisher" type="publisher" name="chessboard_publisher" output="screen">
+    <param name="name" value="chessboard" />
+    <param name="grid_x_size" value="11" />
+    <param name="grid_y_size" value="8" />
+    <param name="rect_x_size" value="0.03415" />
+    <param name="rect_y_size" value="0.03415" />
+  </node>
 
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_map_top_left_z_down" 	args="0.30735 0 0 0 3.14159265359 0 map chessboard 10" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 		args="-0.1506564507807112 0.0096557757767201 -1.9706473753863152 -0.0304445078500291 0.0994100138196114 -0.0074706821534600 0.9945526481802339 chessboard left_optical 10" unless="$(arg detect_chessboard)"/>
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_axis" 			args="0 0 0 1.57079632679 -1.57079632679 0 left_optical camera_link 10" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projection_center" 	args="0.1366 0.10245 0 0 0 0 map projection_center 10" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 			args="0 0 2 0 1.57079632679 -1.57079632679 projection_center projector 10" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_projector" 	args="0.0463034528810322 -0.3235902182367461 -0.0870859582025553 0.9944524238329723 0.1011582301103718 0.0279663069791853 -0.0070196073686308 camera_link projector_link 10" />
 </launch>

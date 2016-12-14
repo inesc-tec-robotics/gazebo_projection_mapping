@@ -37,7 +37,7 @@
     </gui>
 
     <model name='camera'>
-        <link name='link'>
+        <link name='camera_link'>
             <pose>0 0 1.0 0 1.570796 1.570796</pose>
             <visual name='visual'>
                 <pose>0 0 0 0 0 0</pose>
@@ -113,7 +113,7 @@
                 </plugin>
             </sensor>
         </link>
-        <static>1</static>
+        <static>true</static>
     </model>
 
     <model name="calibration_pattern">

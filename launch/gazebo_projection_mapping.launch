@@ -9,7 +9,7 @@
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
 		<arg name="paused" default="false" />
-		<arg name="use_sim_time" default="false" />
+		<arg name="use_sim_time" default="true" />
 		<arg name="gui" default="$(arg use_gazebo_gui)" />
 		<arg name="headless" default="false" /> <!-- disables any function calls to simulator rendering (Ogre) components -->
 		<arg name="debug" default="false" />

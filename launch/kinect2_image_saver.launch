@@ -1,0 +1,17 @@
+<launch>
+	<node pkg="image_file_saver" type="image_file_saver" name="image_file_saver_raw">
+		<param name="filename_format" type="str" value="image_raw/cam_%02i.png" />
+		<param name="encoding" type="str" value="mono8" />
+		<param name="save_all_image" type="bool" value="false" />
+		<param name="save_info" type="bool" value="false" />
+		<remap from="image" to="/kinect2/hd/image_color" />
+	</node>
+
+	<node pkg="image_file_saver" type="image_file_saver" name="image_file_saver_rect">
+		<param name="filename_format" type="str" value="image_rect/cam_%02i.png" />
+		<param name="encoding" type="str" value="mono8" />
+		<param name="save_all_image" type="bool" value="false" />
+		<param name="save_info" type="bool" value="false" />
+		<remap from="image" to="/kinect2/hd/image_color_rect" />
+	</node>
+</launch>

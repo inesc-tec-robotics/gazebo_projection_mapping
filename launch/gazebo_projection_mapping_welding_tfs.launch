@@ -17,10 +17,11 @@
 
 		<!-- origin correction -->
 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_map_bottom_right_z_up" args="0 0.2049 0 0 3.14159265359 3.14159265359 map_offset map_bottom_right_board_z_up 10" />
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_map_top_left_z_down" 	args="0.30735 0 0 0 3.14159265359 0 map_offset map_top_left_board_z_down 10" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_map_top_left_z_down" 	args="0.30735 0 0 0 0 0 map_offset map_top_left_board_z_down 10" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_map_middle_z_down" 	args="0.153675 0 0 0 3.14159265359 0 map_offset map_middle_board_z_down 10" />
 		
 		<!-- camera pose estimation | chessboard_detector-->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 		args="1.0558958739780233 0.9501935752373402 -1.7424086341841518 0.2033356644838891 -0.2403112081594414 0.0408263361967086 0.9482817835720553 map_top_left_board_z_down camera_link_calib 10" 				if="$(arg static_projector_pose)" />
+		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 		args="0.5031165485297207 0.1890158401288671 -2.0069372535773189 -0.0315699736269944 0.0717715041491827 0.0099775046853762 0.9968714246870596 map_top_left_board_z_down camera_link_calib 10" 				if="$(arg static_projector_pose)" />
 
 		<!-- camera pose estimation | mrpt-->
 		<!-- <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_camera_calib" 		args="0.7133 -0.7591 1.7169 0.02146755 0.47664943 -2.72341184 map_bottom_right_board_z_up camera_link_calib 10" 				if="$(arg static_projector_pose)" /> -->
@@ -32,13 +33,13 @@
 		<!-- projector calibration ============================================================================================================================================================================================================ -->
 
 		<!-- projector-camera pose -->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 		args="0.2252692382848255, -0.1259949553605386, -0.0142201030156547 -0.1284858160329369, -0.0430350358337478, -0.0419216113994669, 0.9898898722922719 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" />
+<!-- 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_calib" 		args="0.2252692382848255, -0.1259949553605386, -0.0142201030156547 -0.1284858160329369, -0.0430350358337478, -0.0419216113994669, 0.9898898722922719 camera_link_calib projector_link_calib 10" 	if="$(arg static_projector_pose)" /> -->
 
 		<!-- fix projector axis -->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_axis" 		args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link_fixed_axis 10" 						if="$(arg static_projector_pose)" />
+<!-- 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_axis" 		args="0 0 0 1.57079632679 -1.57079632679 0 projector_link_calib projector_link_fixed_axis 10" 						if="$(arg static_projector_pose)" /> -->
 
 		<!-- manual correction | projector frame -->
-		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 			args="0.0 0.0 0.0   0.0 0.0 0.0 projector_link_fixed_axis projector_link 10" 										if="$(arg static_projector_pose)" />
+<!-- 		<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" 			args="0.0 0.0 0.0   0.0 0.0 0.0 projector_link_fixed_axis projector_link 10" 										if="$(arg static_projector_pose)" /> -->
 	</group>
 	<!-- ============================================================================================================================================================================================================ -->
 
@@ -48,12 +49,12 @@
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam_offset" 		args="0 -0.0015 0.0 0 0 0 map beam_link_offset 10" 														if="$(arg static_beam_pose_offset)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam" 				args="0 0 0 0 0 0 beam_link_offset beam_link_base 10" 											if="$(arg static_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_beam_base" 			args="0 0.008 0.167 0 0 0 beam_link_base beam_link 10" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 			args="10.001 0 0 0 0 0 beam_link beam_weld_begin_link 10" 										if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="10.288 0 0 0 0 0 beam_link beam_weld_end_link 10" 										if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_begin" 			args="0.001 0 0 0 0 0 beam_link beam_weld_begin_link 10" 										if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_end" 			args="0.288 0 0 0 0 0 beam_link beam_weld_end_link 10" 										if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_begin" 	args="0.143 0 0 0 0 0 beam_link beam_weld_middle_begin_link 10" 								if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="10.153 0 0 0 0 0 beam_link beam_weld_middle_end_link 10" 									if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="10.14 0.1601 -0.136 0 0 1.57079632679 beam_link beam_weld_rectangle_link 10" 				if="$(arg attach_welds_to_beam_pose)" />
-	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle_top" 	args="10 0.1601 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_top_link 10" 		if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_middle_end" 	args="0.153 0 0 0 0 0 beam_link beam_weld_middle_end_link 10" 									if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle" 		args="0.14 0.1601 -0.136 0 0 1.57079632679 beam_link beam_weld_rectangle_link 10" 				if="$(arg attach_welds_to_beam_pose)" />
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_rectangle_top" 	args="0 0.1601 0 0 1.57079632679 1.57079632679 beam_link beam_weld_rectangle_top_link 10" 		if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_u_side" 		args="0.146 0.16 -0.05 0 0 0 beam_link beam_weld_u_side_link 10" 								if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_u_top" 			args="-0.05 -0.065 -0.195 -0.04 0 0 beam_link beam_weld_u_top_link 10" 							if="$(arg attach_welds_to_beam_pose)" />
 	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_beam_weld_u_bottom" 		args="-0.051 0.12 -0.191 -0.04 0 0 beam_link beam_weld_u_bottom_link 10" 						if="$(arg attach_welds_to_beam_pose)" />

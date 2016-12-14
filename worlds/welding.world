@@ -192,6 +192,7 @@
 				<visual name="visual">
 					<geometry>
 						<mesh>
+							<scale>2 1 1</scale>
 							<uri>model://beam_weld_u_side/meshes/beam_weld_u_side.stl</uri>
 						</mesh>
 					</geometry>
@@ -439,7 +440,7 @@
 							<intrinsics>
 								<fx>2905.251583</fx>
 								<fy>2916.04609</fy>
-								<cx>867.37922195319618</cx>
+								<cx>871.37922195319618</cx>
 								<cy>-79.749876934</cy>
 								<s>0.0</s>
 							</intrinsics>
@@ -458,8 +459,8 @@
 						<focalLengthX>2905.251583</focalLengthX>
 						<focalLengthY>2916.04609</focalLengthY>
 						<hackBaseline>0</hackBaseline>
-						<CxPrime>869.37922195319618</CxPrime>
-						<Cx>867.37922195319618</Cx>
+						<CxPrime>871.37922195319618</CxPrime>
+						<Cx>871.37922195319618</Cx>
 						<Cy>-79.749876934</Cy>
 
 						<distortionK1>-0.048368414149323344</distortionK1>
