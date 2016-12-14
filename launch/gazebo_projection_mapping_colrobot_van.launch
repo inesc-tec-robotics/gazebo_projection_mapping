@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
+	<arg name="use_gazebo_gui" default="false" />
+	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
+	<arg name="world_name" default="colrobot_van.world" />
+	<arg name="show_image" default="false" />
+	<arg name="publish_tfs" default="false" />
+	
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
+		<arg name="paused" default="false" />
+		<arg name="use_sim_time" default="true" />
+		<arg name="gui" default="$(arg use_gazebo_gui)" />
+		<arg name="headless" default="false" /> <!-- disables any function calls to simulator rendering (Ogre) components -->
+		<arg name="debug" default="false" />
+	</include>
+
+	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" />
+
+	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
+		<param name="autosize" type="bool" value="false" />
+		<param name="filename_format" type="str" value="frame%04i.png" />
+		<remap from="image" to="virtual_camera/image_rect_color" />
+	</node>
+	<node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" args="image_view /virtual_camera/image_rect_color" if="$(arg show_image)" output="screen" />
+
+	<include file="$(find gazebo_projection_mapping)/launch/gazebo_projection_mapping_colrobot_van_tfs.launch" if="$(arg publish_tfs)" />
+</launch>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="publish_projector_tunning_tf" default="true" />
+	<arg name="publish_calibration_pattern_tf" default="false" />
+	<arg name="publish_box_tf" default="false" />
+
+	<param name="/use_sim_time" value="false" />
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">
+		<param name="gazebo_link_name" type="str" value="projector_link" />
+		<param name="tf_source_frame" type="str" value="projector_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_calibration_pattern">
+		<param name="gazebo_link_name" type="str" value="calibration_pattern_link" />
+		<param name="tf_source_frame" type="str" value="calibration_pattern_link" />
+	</node>
+
+	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_box">
+		<param name="gazebo_link_name" type="str" value="box_link" />
+		<param name="tf_source_frame" type="str" value="box_link" />
+	</node>
+
+	<!-- ===== calibrations ===== -->
+
+	<!-- change from image axis to ros axis convenction -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector_axis" args="0 0 0 1.5707 1.5707 0 projector projector_link 10" />
+
+	<!-- camera-projector calibration tunning -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_projector" args="0.1356 0.03415 0.85 0 0 -0.118682 map projector 10"/>
+
+	<!-- ===== scene objects ===== -->
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_board" args="0 0 0 0 0 0 map calibration_pattern_link 10" if="$(arg publish_calibration_pattern_tf)"/>
+	<node pkg="tf" type="static_transform_publisher" name="static_transform_publisher_box" args="0.045 0.03 0.015 0 0 0 map box_link 10" if="$(arg publish_box_tf)"/>
+</launch>
