@@ -1,25 +1,96 @@
 <sdf version='1.6'>
 	<world name='default'>
-		<model name="box">
+		<model name="inspection_marker">
 			<static>1</static>
-			<pose>0.045 0.03 0.015 0 0 0</pose>
-			<link name="box_link">
+			<pose>0 0 0 0 0 1.5707</pose>
+			<link name="inspection_marker_link">
 				<visual name="visual">
-					<transparency>0</transparency>
+					<transparency>0.05</transparency>
 					<cast_shadows>false</cast_shadows>
 					<geometry>
 						<box>
-							<size>0.09 0.06 0.03</size>
+							<size>0.08 0.08 0.002</size>
 						</box>
 					</geometry>
 					<material>
 						<script>
-							<uri>file://media/materials/scripts/gazebo.material</uri>
-							<name>Gazebo/Green</name>
+							<uri>model://inspection_marker/materials/scripts</uri>
+							<uri>model://inspection_marker/materials/textures</uri>
+							<name>inspection_marker</name>
 						</script>
 					</material>
 				</visual>
 				<gravity>0</gravity>
+			</link>
+		</model>
+
+		<model name="inspection_message">
+			<static>true</static>
+			<pose>0.2 0 0 0 0 1.5707</pose>
+			<link name="inspection_message_link">
+				<visual name="visual">
+					<transparency>0.05</transparency>
+					<cast_shadows>false</cast_shadows>
+					<geometry>
+						<box>
+							<size>0.08 0.236 0.002</size>
+						</box>
+					</geometry>
+					<material>
+						<script>
+							<uri>model://inspection_message/materials/scripts</uri>
+							<uri>model://inspection_message/materials/textures</uri>
+							<name>inspection_message</name>
+						</script>
+					</material>
+				</visual>
+			</link>
+		</model>
+
+		<model name="inspection_marker2">
+			<static>1</static>
+			<pose>0 0 0 0 0 1.5707</pose>
+			<link name="inspection_marker2_link">
+				<visual name="visual">
+					<transparency>1</transparency>
+					<cast_shadows>false</cast_shadows>
+					<geometry>
+						<box>
+							<size>0.08 0.08 0.002</size>
+						</box>
+					</geometry>
+					<material>
+						<script>
+							<uri>model://inspection_marker/materials/scripts</uri>
+							<uri>model://inspection_marker/materials/textures</uri>
+							<name>inspection_marker</name>
+						</script>
+					</material>
+				</visual>
+				<gravity>0</gravity>
+			</link>
+		</model>
+
+		<model name="inspection_message2">
+			<static>true</static>
+			<pose>0.2 0 0 0 0 1.5707</pose>
+			<link name="inspection_message2_link">
+				<visual name="visual">
+					<transparency>1</transparency>
+					<cast_shadows>false</cast_shadows>
+					<geometry>
+						<box>
+							<size>0.08 0.236 0.002</size>
+						</box>
+					</geometry>
+					<material>
+						<script>
+							<uri>model://inspection_message/materials/scripts</uri>
+							<uri>model://inspection_message/materials/textures</uri>
+							<name>inspection_message</name>
+						</script>
+					</material>
+				</visual>
 			</link>
 		</model>
 
@@ -53,7 +124,7 @@
 				<visual name='projector_link_visual'>
 					<geometry>
 						<box>
-							<size>0.0025 0.05 0.03</size>
+							<size>0.025 0.1 0.06</size>
 						</box>
 					</geometry>
 					<material>
@@ -95,7 +166,7 @@
 					<visualize>0</visualize>
 					<plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
 						<alwaysOn>true</alwaysOn>
-						<updateRate>10</updateRate>
+						<updateRate>1</updateRate>
 						<cameraName>virtual_camera</cameraName>
 						<imageTopicName>image_raw</imageTopicName>
 						<cameraInfoTopicName>camera_info</cameraInfoTopicName>
