@@ -62,15 +62,24 @@ void TFToLinkState::publishLinkStateFromTF() {
 		try {
 			tf_listener_.lookupTransform(tf_target_frame_, tf_source_frame_, ros::Time(0), transform);
 
-			link_state_.pose.position.x = transform.getOrigin().getX();
-			link_state_.pose.position.y = transform.getOrigin().getY();
-			link_state_.pose.position.z = transform.getOrigin().getZ();
-			link_state_.pose.orientation.x = transform.getRotation().getX();
-			link_state_.pose.orientation.y = transform.getRotation().getY();
-			link_state_.pose.orientation.z = transform.getRotation().getZ();
-			link_state_.pose.orientation.w = transform.getRotation().getW();
+			if (link_state_.pose.position.x != transform.getOrigin().getX() ||
+					link_state_.pose.position.y != transform.getOrigin().getY() ||
+					link_state_.pose.position.z != transform.getOrigin().getZ() ||
+					link_state_.pose.orientation.x != transform.getRotation().getX() ||
+					link_state_.pose.orientation.y != transform.getRotation().getY() ||
+					link_state_.pose.orientation.z != transform.getRotation().getZ() ||
+					link_state_.pose.orientation.w != transform.getRotation().getW())
+			{
+				link_state_.pose.position.x = transform.getOrigin().getX();
+				link_state_.pose.position.y = transform.getOrigin().getY();
+				link_state_.pose.position.z = transform.getOrigin().getZ();
+				link_state_.pose.orientation.x = transform.getRotation().getX();
+				link_state_.pose.orientation.y = transform.getRotation().getY();
+				link_state_.pose.orientation.z = transform.getRotation().getZ();
+				link_state_.pose.orientation.w = transform.getRotation().getW();
 
-			link_state_publisher_.publish(link_state_);
+				link_state_publisher_.publish(link_state_);
+			}
 		} catch (tf::TransformException &ex) {
 			ROS_WARN_STREAM_THROTTLE(1, "Couldn't find tf [ " << tf_source_frame_ << " -> " << tf_target_frame_ << " ]");
 		}
