@@ -9,7 +9,8 @@
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
 		<arg name="paused" default="false" />
-		<arg name="use_sim_time" default="true" />
+		<arg name="use_sim_time" default="false" />
+		<arg name="remap_clock" default="true"/>
 		<arg name="gui" default="$(arg use_gazebo_gui)" />
 		<arg name="headless" default="false" /> <!-- disables any function calls to simulator rendering (Ogre) components -->
 		<arg name="debug" default="false" />
@@ -28,5 +29,6 @@
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">
 		<param name="gazebo_link_name" type="str" value="projector_link" />
 		<param name="tf_source_frame" type="str" value="projector_link" />
+		<param name="publish_rate" type="double" value="1"/>
 	</node>
 </launch>
