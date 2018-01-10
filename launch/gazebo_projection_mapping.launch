@@ -5,6 +5,9 @@
 	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
 	<arg name="world_name" default="demo_robotica_2015.world" />
 	<arg name="show_image" default="true" />
+	<arg name="correct_lens_distortion" default="false" />
+	<arg name="camera_image_topic" default="image_rect_color" if="$(arg correct_lens_distortion)" />
+	<arg name="camera_image_topic" default="image_raw" unless="$(arg correct_lens_distortion)" />
 	
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" default="$(arg world_folder)$(arg world_name)" />
@@ -17,14 +20,14 @@
 	</include>
 
 
-	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" />
+	<node ns="virtual_camera" pkg="image_proc" type="image_proc" name="image_proc" if="$(arg correct_lens_distortion)" />
 
 	<node pkg="image_view" type="image_view" name="image_view" if="$(arg show_image)">
 		<param name="autosize" type="bool" value="false" />
 		<param name="filename_format" type="str" value="frame%04i.png" />
-		<remap from="image" to="virtual_camera/image_rect_color" />
+		<remap from="image" to="virtual_camera/$(arg camera_image_topic)" />
 	</node>
-	<node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" args="image_view /virtual_camera/image_rect_color" if="$(arg show_image)" output="screen" />
+	<node pkg="gazebo_projection_mapping" type="fullscreen_camera.bash" name="fullscreen_camera" args="image_view /virtual_camera/$(arg camera_image_topic)" if="$(arg show_image)" output="screen" />
 
 	<node pkg="gazebo_projection_mapping" type="gpm_tf_to_link_state_node" name="gpm_tf_to_link_state_node_projector">
 		<param name="gazebo_link_name" type="str" value="projector_link" />

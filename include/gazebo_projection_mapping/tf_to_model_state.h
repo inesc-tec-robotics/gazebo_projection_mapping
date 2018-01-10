@@ -1,6 +1,6 @@
 #pragma once
 
-/**\file tf_to_link_state.h
+/**\file tf_to_model_state.h
  * \brief Description...
  *
  * @version 1.0
@@ -16,7 +16,7 @@
 #include <ros/ros.h>
 #include <ros/rate.h>
 #include <tf/transform_listener.h>
-#include <gazebo_msgs/LinkState.h>
+#include <gazebo_msgs/ModelState.h>
 
 // external libs includes
 
@@ -25,23 +25,24 @@
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </includes>   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 namespace gazebo_projection_mapping {
-// #############################################################################   TFToLinkState   #############################################################################
+// #############################################################################   TFToModelState   #############################################################################
 /**
  * \brief Description...
  */
-class TFToLinkState {
+class TFToModelState {
 		// ====================================================================   <public-section>   ===========================================================================
 	public:
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </constants>  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   <constructors-destructor>   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-		TFToLinkState() : state_published_(false), publish_rate_(30.0) {}
-		virtual ~TFToLinkState() {}
+		TFToModelState() : state_published_(false), publish_rate_(30.0) {}
+		virtual ~TFToModelState() {}
 		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </constructors-destructor>  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   <TFToLinkState-functions>   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   <TFToModelState-functions>   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		void setupConfigurationFromParameterServer(ros::NodeHandlePtr& node_handle, ros::NodeHandlePtr& private_node_handle);
-		void publishLinkStateFromTF();
-		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </TFToLinkState-functions>  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		void publishModelStateFromTF();
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   </TFToModelState-functions>  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	// ========================================================================   </public-section>  ===========================================================================
 
 	// ========================================================================   <protected-section>   ========================================================================
@@ -53,7 +54,7 @@ class TFToLinkState {
 		// configuration fields
 		std::string tf_source_frame_;
 		std::string tf_target_frame_;
-		gazebo_msgs::LinkState link_state_;
+		gazebo_msgs::ModelState model_state_;
 		bool state_published_;
 
 		// state fields
@@ -62,7 +63,7 @@ class TFToLinkState {
 
 		// ros communication fields
 		ros::NodeHandlePtr node_handle_;
-		ros::Publisher link_state_publisher_;
+		ros::Publisher model_state_publisher_;
 	// ========================================================================   </private-section>  ==========================================================================
 };
 
