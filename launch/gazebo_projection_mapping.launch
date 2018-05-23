@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<env name="GAZEBO_MODEL_PATH" value='$(find crob_gazebo_models)/models:$(optenv GAZEBO_MODEL_PATH "")' />
+	<arg name="additional_gazebo_resource_paths" default="" />
+	<arg name="additional_gazebo_model_paths" default="$(find crob_gazebo_models)/models" />
+	<env name="GAZEBO_RESOURCE_PATH" value='$(arg additional_gazebo_resource_paths):$(optenv GAZEBO_RESOURCE_PATH "")' />
+	<env name="GAZEBO_MODEL_PATH" value='$(arg additional_gazebo_model_paths):$(optenv GAZEBO_MODEL_PATH "")' />
 	<arg name="use_gazebo_gui" default="false" />
 	<arg name="world_folder" default="$(find gazebo_projection_mapping)/worlds/" />
 	<arg name="world_name" default="demo_robotica_2015.world" />
