@@ -85,7 +85,7 @@
                             <fx>1945.035121562</fx>
                             <fy>1945.5172005493810</fy>
                             <cx>613.836478629</cx>
-                            <cy>-5.22387198283725</cy>
+                            <cy>805.22387198283725</cy>
                             <s>0.0</s>
                         </intrinsics>
                     </lens>
@@ -100,7 +100,7 @@
                     <frameName>camera_link</frameName>
                     <CxPrime>613.836478629</CxPrime>
                     <Cx>613.836478629</Cx>
-                    <Cy>-5.52387198283725</Cy>
+                    <Cy>805.52387198283725</Cy>
                     <focalLengthX>1945.035121562</focalLengthX>
                     <focalLengthY>1945.5172005493810</focalLengthY>
                     <hackBaseline>0</hackBaseline>
